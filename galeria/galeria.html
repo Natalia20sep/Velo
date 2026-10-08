@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELO · Galería</title>
+    <link rel="stylesheet" href="../estilos.css">
+</head>
+
+<body>
+    <nav>
+        <a class="logo" href="../index.html">VELO</a>
+        <div class="navlinks">
+            <a href="../mundo/mundo.html">Mundo</a>
+            <a href="../organizaciones/organizaciones.html">Organizaciones</a>
+            <a href="../personajes/personajes.html">Personajes</a>
+            <a href="../archivo/archivo.html">Archivo</a>
+            <a href="../sellado/sellado.html">Aviso</a>
+            <div class="nav-dropdown">
+                <button class="nav-dropdown-btn">Miscelánea</button>
+                <div class="nav-dropdown-menu">
+                    <a href="../cronologia/cronologia.html">Cronología</a>
+                    <a href="../presentacion/presentacion.html">Presentación</a>
+                    <a href="galeria.html">Galería</a>
+                    <a href="../irl/irl.html">IRL</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="gallery-header">
+            <header class="mundo-hero">
+                <div class="mundo-kicker">Galería</div>
+                <h1>Archivos Visuales</h1>
+                <p class="mundo-subtitle">Una colección de imágenes relacionadas con el mundo de VELO.</p>
+            </header>
+        </section>
+        <section class="gallery">
+            <div id="galleryGrid" class="gallery-grid"></div>
+        </section>
+    </main>
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <button id="closeLightbox" class="lightbox-close" type="button" aria-label="Cerrar">
+            ×
+        </button>
+        <button id="prevImage" class="lightbox-arrow lightbox-prev" type="button" aria-label="Imagen anterior">
+            ‹
+        </button>
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="">
+            <div class="lightbox-info">
+                <span id="imageCounter">01 / 01</span>
+            </div>
+        </div>
+        <button id="nextImage" class="lightbox-arrow lightbox-next" type="button" aria-label="Imagen siguiente">
+            ›
+        </button>
+    </div>
+    <script src="../js/galeria.js"></script>
+</body>
+
+</html>

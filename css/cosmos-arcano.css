@@ -1,0 +1,906 @@
+/* ============================================================
+   VELO · COSMOS ARCANO
+   Capa visual final. No modifica estructura ni contenido.
+   ============================================================ */
+
+:root {
+    --bg: #030611;
+    --bg-soft: #071021;
+    --panel: rgba(9, 18, 38, .82);
+    --panel2: rgba(13, 25, 52, .78);
+    --panel3: rgba(21, 30, 63, .72);
+
+    --ink: #f4f0e7;
+    --muted: #aeb6ca;
+    --muted2: #69738b;
+
+    --gold: #d8b86a;
+    --gold-light: #f0d99a;
+    --gold-dark: #7f6128;
+
+    --violet: #7764d8;
+    --violet-light: #b39cff;
+    --violet-dark: #3d347d;
+
+    --fuchsia: #a05bd0;
+    --magic: #687cff;
+
+    --blue: #3f82e8;
+    --blue-light: #82c9ff;
+    --cyan: #65d8e8;
+
+    --line: rgba(216, 184, 106, .24);
+    --line-soft: rgba(153, 179, 229, .11);
+
+    --shadow: 0 28px 90px rgba(0, 0, 0, .55);
+    --ease: cubic-bezier(.2, .75, .2, 1);
+}
+
+/* ---------- ATMÓSFERA GLOBAL ---------- */
+
+html {
+    background: #02040b !important;
+    color-scheme: dark;
+}
+
+body {
+    background:
+        radial-gradient(ellipse at 50% -18%, rgba(70, 91, 190, .25), transparent 34%),
+        radial-gradient(ellipse at 12% 20%, rgba(48, 111, 210, .10), transparent 30%),
+        radial-gradient(ellipse at 88% 70%, rgba(125, 61, 190, .12), transparent 32%),
+        linear-gradient(180deg, #050916 0%, #030611 45%, #02040a 100%) !important;
+    color: var(--ink);
+}
+
+body::before {
+    z-index: 0;
+    pointer-events: none !important;
+    opacity: .42 !important;
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, .95) .55px, transparent 1.15px),
+        radial-gradient(circle, rgba(130, 205, 255, .8) .55px, transparent 1.1px),
+        radial-gradient(circle, rgba(216, 184, 106, .75) .6px, transparent 1.15px),
+        radial-gradient(circle, rgba(179, 156, 255, .55) .7px, transparent 1.25px) !important;
+    background-size: 137px 137px, 211px 211px, 307px 307px, 421px 421px !important;
+    background-position: 17px 29px, 73px 151px, 191px 47px, 31px 233px !important;
+    animation: veloStars 42s linear infinite !important;
+}
+
+body::after {
+    z-index: 0;
+    pointer-events: none !important;
+    inset: -30% !important;
+    background:
+        radial-gradient(ellipse at 17% 30%, rgba(65, 124, 235, .13), transparent 24%),
+        radial-gradient(ellipse at 80% 17%, rgba(145, 78, 218, .13), transparent 27%),
+        radial-gradient(ellipse at 70% 82%, rgba(65, 92, 213, .10), transparent 27%),
+        radial-gradient(ellipse at 22% 85%, rgba(216, 184, 106, .055), transparent 24%),
+        conic-gradient(from 215deg at 50% 45%, transparent, rgba(99, 93, 224, .035), transparent 23%, rgba(73, 154, 230, .035), transparent 55%) !important;
+    filter: blur(35px) saturate(115%);
+    animation: veloNebula 24s ease-in-out infinite alternate !important;
+}
+
+body>* {
+    z-index: 1;
+}
+
+/* Delicate ancient frame around the page */
+body>main::before,
+body>.home-index::before,
+body>.mundo-page::before,
+body>.sealed-page::before {
+    pointer-events: none;
+}
+
+/* ---------- NAVEGACIÓN ---------- */
+
+nav {
+    position: fixed;
+    z-index: 1000;
+    pointer-events: auto;
+    padding: 17px 5vw !important;
+    background:
+        linear-gradient(180deg, rgba(2, 6, 17, .97), rgba(3, 8, 20, .88) 58%, rgba(3, 8, 20, .35), transparent) !important;
+    border-bottom-color: rgba(216, 184, 106, .14) !important;
+    box-shadow: 0 8px 35px rgba(0, 0, 0, .22);
+    backdrop-filter: blur(18px) saturate(125%) !important;
+}
+
+nav::before {
+    height: 2px !important;
+    background: linear-gradient(90deg, transparent, var(--violet), var(--blue-light), var(--gold), var(--violet), transparent) !important;
+    opacity: .5 !important;
+    box-shadow: 0 0 20px rgba(104, 124, 255, .25);
+}
+
+nav::after {
+    background: linear-gradient(90deg, transparent, rgba(119, 100, 216, .22), rgba(216, 184, 106, .5), rgba(119, 100, 216, .22), transparent) !important;
+}
+
+.logo {
+    color: var(--gold-light) !important;
+    text-shadow: 0 0 16px rgba(216, 184, 106, .18), 0 0 34px rgba(104, 124, 255, .12);
+    letter-spacing: .30em !important;
+}
+
+.logo::before {
+    color: var(--blue-light) !important;
+    text-shadow: 0 0 12px rgba(101, 216, 232, .65);
+}
+
+.navlinks a,
+.nav-dropdown-btn {
+    color: #c3c9d8 !important;
+}
+
+.navlinks a:hover,
+.navlinks a.active,
+.nav-dropdown:hover .nav-dropdown-btn,
+.nav-dropdown:focus-within .nav-dropdown-btn {
+    color: var(--gold-light) !important;
+    text-shadow: 0 0 13px rgba(216, 184, 106, .26), 0 0 24px rgba(119, 100, 216, .15);
+}
+
+.navlinks a::after,
+.nav-dropdown-btn::after {
+    background: linear-gradient(90deg, var(--blue), var(--violet), var(--gold)) !important;
+    box-shadow: 0 0 12px rgba(104, 124, 255, .35) !important;
+}
+
+.navlinks a::before,
+.nav-dropdown-btn::before {
+    color: var(--violet-light) !important;
+    text-shadow: 0 0 10px rgba(179, 156, 255, .65);
+}
+
+.nav-dropdown-menu {
+    background:
+        linear-gradient(145deg, rgba(7, 15, 33, .96), rgba(6, 10, 24, .94)) !important;
+    border-color: rgba(216, 184, 106, .25) !important;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .58), 0 0 35px rgba(104, 124, 255, .10) !important;
+}
+
+.nav-dropdown-menu::before {
+    background: linear-gradient(90deg, transparent, var(--blue-light), var(--gold), var(--violet), transparent) !important;
+}
+
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu a.active {
+    color: var(--gold-light) !important;
+    background: linear-gradient(90deg, rgba(62, 128, 232, .10), rgba(119, 100, 216, .10), rgba(216, 184, 106, .06)) !important;
+}
+
+/* ---------- TIPOGRAFÍA ---------- */
+
+h1,
+h2,
+h3,
+.quote,
+.presentation-title h1,
+.mundo-hero h1,
+.mundo-emphasis,
+.mundo-velo,
+.sealed-content h1,
+.organizacion-card h3 {
+    color: var(--ink);
+    text-shadow: 0 0 35px rgba(104, 124, 255, .10), 0 0 70px rgba(119, 100, 216, .07);
+}
+
+h1,
+.hero h2,
+h2,
+h3 {
+    font-family: "Cinzel", serif !important;
+}
+
+.eyebrow,
+.kicker,
+.mundo-kicker,
+.bastion-kicker,
+.entidad-kicker,
+.irl-title span {
+    color: var(--gold-light) !important;
+    text-shadow: 0 0 14px rgba(216, 184, 106, .18);
+}
+
+.section-head {
+    border-bottom-color: rgba(216, 184, 106, .20) !important;
+}
+
+.section-head::before {
+    background: transparent !important;
+    color: var(--gold-light) !important;
+    text-shadow: 0 0 14px rgba(216, 184, 106, .8), 0 0 24px rgba(119, 100, 216, .5);
+}
+
+.section-head::after {
+    background: linear-gradient(90deg, var(--gold), var(--violet), var(--blue), transparent) !important;
+    box-shadow: 0 0 16px rgba(119, 100, 216, .30) !important;
+}
+
+/* ---------- CONTENEDORES / PANELES ---------- */
+
+.archive-page,
+.irl-page,
+.expedient-page,
+.mundo-page,
+.organizaciones-section,
+.bastion-page,
+.sealed-page,
+.home-index {
+    position: relative;
+}
+
+.archive-page::after,
+.irl-page::after,
+.expedient-page::after,
+.mundo-page::after,
+.organizaciones-section::after,
+.bastion-page::after,
+.sealed-page::after,
+.home-index::after {
+    content: "";
+    position: absolute;
+    inset: 1.5rem;
+    border: 1px solid rgba(216, 184, 106, .035);
+    pointer-events: none;
+    mask-image: linear-gradient(to bottom, #000, transparent 94%);
+    z-index: -1;
+}
+
+/* shared card language */
+.archive-record,
+.archive-status,
+.archive-notice,
+.character-card,
+.organizacion-card,
+.identity-sheet,
+.file-section,
+.irl-person,
+.mundo-mapa,
+.sealed-notification,
+.presentation video,
+.gallery-header,
+.gallery-grid,
+.index-entry {
+    background:
+        radial-gradient(circle at 100% 0%, rgba(104, 124, 255, .09), transparent 30%),
+        radial-gradient(circle at 0% 100%, rgba(119, 100, 216, .055), transparent 35%),
+        linear-gradient(145deg, rgba(12, 24, 49, .90), rgba(4, 10, 24, .94)) !important;
+    border-color: rgba(136, 157, 208, .15) !important;
+    box-shadow: 0 18px 55px rgba(0, 0, 0, .24), inset 0 0 45px rgba(69, 91, 175, .025);
+}
+
+.archive-record:hover,
+.character-card:hover,
+.organizacion-card:hover,
+.irl-person:hover,
+.index-entry:hover {
+    border-color: rgba(216, 184, 106, .45) !important;
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, .40),
+        0 0 35px rgba(104, 124, 255, .09),
+        inset 0 0 50px rgba(119, 100, 216, .045) !important;
+}
+
+/* corners like an illuminated ancient manuscript */
+.archive-record::after,
+.character-card::after,
+.organizacion-card::after,
+.file-section::after,
+.identity-sheet::after,
+.irl-person::after {
+    color: rgba(179, 156, 255, .07) !important;
+}
+
+/* ---------- HERO PRINCIPAL ---------- */
+
+.hero {
+    background:
+        radial-gradient(ellipse at 50% 42%, rgba(64, 104, 220, .10), transparent 30%),
+        radial-gradient(ellipse at 50% 65%, rgba(126, 72, 198, .07), transparent 38%) !important;
+}
+
+.hero::before {
+    width: min(72vw, 780px) !important;
+    height: min(72vw, 780px) !important;
+    background:
+        radial-gradient(circle, rgba(89, 119, 239, .18), rgba(119, 100, 216, .07) 34%, rgba(166, 91, 208, .035) 50%, transparent 72%) !important;
+    box-shadow: 0 0 100px rgba(67, 117, 231, .08);
+}
+
+.hero::after {
+    width: min(58vw, 620px) !important;
+    height: min(58vw, 620px) !important;
+    border-color: rgba(216, 184, 106, .13) !important;
+    box-shadow:
+        0 0 80px rgba(119, 100, 216, .08),
+        inset 0 0 90px rgba(63, 130, 232, .045) !important;
+}
+
+.hero h1 {
+    color: #f3eee3 !important;
+    background: linear-gradient(180deg, #fff8df 0%, #f0d99a 38%, #aeb6ca 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none !important;
+    filter: drop-shadow(0 0 22px rgba(216, 184, 106, .12));
+}
+
+.hero h2 {
+    color: #dddff0 !important;
+}
+
+/* ---------- FORMAS / SEPARADORES MÁGICOS ---------- */
+
+.mundo-divider::before,
+.mundo-divider::after {
+    background: linear-gradient(90deg, transparent, var(--violet), var(--gold), transparent) !important;
+    box-shadow: 0 0 12px rgba(119, 100, 216, .28);
+}
+
+.mundo-divider span,
+.connection-symbol,
+.bastion-symbol,
+.entidad-symbol,
+.sealed-mark {
+    color: var(--gold-light) !important;
+    text-shadow: 0 0 18px rgba(216, 184, 106, .32), 0 0 32px rgba(119, 100, 216, .18);
+}
+
+/* ---------- PERSONAJES ---------- */
+
+.character-grid {
+    gap: 18px !important;
+}
+
+.character-card {
+    min-height: 215px !important;
+    border-radius: 2px;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.character-card::before {
+    background:
+        linear-gradient(90deg, transparent, rgba(101, 216, 232, .07), rgba(179, 156, 255, .10), rgba(216, 184, 106, .07), transparent) !important;
+}
+
+.character-card::after {
+    color: rgba(101, 216, 232, .045) !important;
+}
+
+.character-card:hover::after {
+    color: rgba(179, 156, 255, .12) !important;
+    text-shadow: 0 0 30px rgba(119, 100, 216, .15);
+}
+
+.character-card h3 {
+    color: #eeeaf0 !important;
+}
+
+.character-card:hover h3 {
+    color: var(--gold-light) !important;
+}
+
+.sigil {
+    color: var(--blue-light) !important;
+    text-shadow: 0 0 12px rgba(101, 216, 232, .32);
+}
+
+.classification {
+    color: #8793ad !important;
+}
+
+.card-line {
+    background: linear-gradient(90deg, var(--gold), var(--violet), var(--blue), transparent) !important;
+    box-shadow: 0 0 10px rgba(104, 124, 255, .22);
+}
+
+.characters-toolbar input,
+.archive-search input {
+    background:
+        radial-gradient(circle at 90% 50%, rgba(104, 124, 255, .12), transparent 35%),
+        linear-gradient(145deg, rgba(8, 19, 40, .96), rgba(4, 10, 24, .98)) !important;
+    border-color: rgba(125, 151, 212, .20) !important;
+    color: var(--ink) !important;
+    box-shadow: inset 0 0 25px rgba(48, 83, 174, .05);
+}
+
+.characters-toolbar input:focus,
+.archive-search input:focus {
+    border-color: rgba(216, 184, 106, .55) !important;
+    box-shadow: 0 0 0 3px rgba(216, 184, 106, .045), 0 0 35px rgba(104, 124, 255, .10) !important;
+}
+
+/* ---------- ARCHIVO ---------- */
+
+.archive-status {
+    border-top-color: rgba(216, 184, 106, .30) !important;
+}
+
+.archive-access strong,
+.archive-counter strong,
+.archive-status-header h2 {
+    color: var(--gold-light) !important;
+    text-shadow: 0 0 18px rgba(216, 184, 106, .12);
+}
+
+.archive-filter {
+    border-color: rgba(125, 151, 212, .17) !important;
+    background: rgba(8, 17, 36, .55) !important;
+}
+
+.archive-filter:hover,
+.archive-filter.active,
+.archive-filter.is-active {
+    color: var(--gold-light) !important;
+    border-color: rgba(216, 184, 106, .40) !important;
+    background: linear-gradient(135deg, rgba(63, 130, 232, .12), rgba(119, 100, 216, .12)) !important;
+    box-shadow: 0 0 22px rgba(104, 124, 255, .08);
+}
+
+.archive-warning,
+.archive-notice {
+    border-color: rgba(216, 184, 106, .18) !important;
+    background:
+        radial-gradient(circle at 0 50%, rgba(119, 100, 216, .10), transparent 45%),
+        rgba(7, 15, 31, .75) !important;
+}
+
+/* ---------- CRONOLOGÍA ---------- */
+
+.timeline,
+.timeline::before {
+    border-left-color: rgba(119, 100, 216, .45) !important;
+}
+
+.timeline::before {
+    background: linear-gradient(to bottom, transparent, var(--blue), var(--violet), var(--gold), transparent) !important;
+}
+
+.event::before {
+    background: #040a17 !important;
+    border-color: var(--gold) !important;
+    box-shadow: 0 0 0 3px rgba(119, 100, 216, .07);
+}
+
+.event:hover::before {
+    background: var(--gold) !important;
+    box-shadow: 0 0 0 7px rgba(216, 184, 106, .07), 0 0 22px rgba(216, 184, 106, .45), 0 0 38px rgba(104, 124, 255, .20) !important;
+}
+
+.year {
+    color: var(--gold-light) !important;
+}
+
+/* ---------- ORGANIZACIONES ---------- */
+
+.organizaciones-grid {
+    gap: 30px !important;
+}
+
+.organizacion-card {
+    min-height: 380px !important;
+    background:
+        radial-gradient(circle at 85% 12%, rgba(104, 124, 255, .12), transparent 32%),
+        radial-gradient(circle at 15% 90%, rgba(119, 100, 216, .08), transparent 34%),
+        linear-gradient(145deg, rgba(10, 22, 45, .94), rgba(4, 10, 24, .98)) !important;
+}
+
+.organizacion-card::before {
+    border-color: rgba(216, 184, 106, .06) !important;
+}
+
+.organizacion-card::after {
+    width: 120px !important;
+    background: linear-gradient(90deg, var(--gold), var(--violet), transparent) !important;
+    opacity: .65 !important;
+}
+
+.organizacion-card .mark {
+    border-color: rgba(216, 184, 106, .45) !important;
+    background: radial-gradient(circle, rgba(104, 124, 255, .22), rgba(5, 10, 24, .92) 68%) !important;
+    box-shadow: 0 0 28px rgba(104, 124, 255, .08);
+}
+
+.organizacion-card .mark::before {
+    border-color: rgba(101, 216, 232, .18) !important;
+}
+
+.organizacion-card .mark::after {
+    color: var(--blue-light) !important;
+    text-shadow: 0 0 12px rgba(101, 216, 232, .5);
+}
+
+.organizacion-card:hover .mark {
+    border-color: var(--gold-light) !important;
+    box-shadow: 0 0 30px rgba(216, 184, 106, .12), 0 0 50px rgba(104, 124, 255, .10);
+}
+
+.organizacion-card h3 {
+    color: #eeeaf0 !important;
+}
+
+.organizacion-card:hover h3 {
+    color: var(--gold-light) !important;
+}
+
+.organizacion-connection .connection-line {
+    background: linear-gradient(90deg, transparent, var(--violet), var(--gold), var(--violet), transparent) !important;
+    box-shadow: 0 0 15px rgba(119, 100, 216, .22);
+}
+
+.universidad-link {
+    border-color: rgba(216, 184, 106, .22) !important;
+    background: linear-gradient(145deg, rgba(13, 28, 56, .82), rgba(7, 13, 30, .90)) !important;
+}
+
+/* ---------- FICHAS / EXPEDIENTES ---------- */
+
+.file-header,
+.file-identity,
+.identity-sheet,
+.file-section {
+    border-color: rgba(125, 151, 212, .16) !important;
+}
+
+.file-header::after {
+    background: linear-gradient(90deg, var(--violet), var(--blue), var(--gold), transparent) !important;
+}
+
+.file-header-main strong,
+.file-number,
+.sheet-heading h2 {
+    color: var(--gold-light) !important;
+}
+
+.file-stamp {
+    color: var(--violet-light) !important;
+    border-color: rgba(179, 156, 255, .28) !important;
+    box-shadow: inset 0 0 25px rgba(119, 100, 216, .05), 0 0 22px rgba(119, 100, 216, .07);
+}
+
+.photo-frame {
+    background:
+        radial-gradient(circle, rgba(104, 124, 255, .13), transparent 60%),
+        #040916 !important;
+    border-color: rgba(216, 184, 106, .28) !important;
+    box-shadow: 0 20px 55px rgba(0, 0, 0, .40), inset 0 0 35px rgba(119, 100, 216, .07);
+}
+
+.photo-frame::before,
+.photo-frame::after {
+    border-color: rgba(216, 184, 106, .28) !important;
+}
+
+.identity-status strong {
+    color: var(--gold-light) !important;
+}
+
+.identity-field {
+    border-bottom-color: rgba(125, 151, 212, .13) !important;
+}
+
+.identity-field span {
+    color: var(--blue-light) !important;
+}
+
+/* ---------- MUNDO ---------- */
+
+.mundo-page {
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(61, 91, 195, .10), transparent 35%),
+        radial-gradient(ellipse at 50% 75%, rgba(119, 100, 216, .06), transparent 35%) !important;
+}
+
+.mundo-hero::before {
+    background:
+        radial-gradient(circle, rgba(104, 124, 255, .15), transparent 62%) !important;
+    border-color: rgba(216, 184, 106, .10) !important;
+}
+
+.mundo-hero h1 {
+    background: linear-gradient(180deg, #fff7db, #d8b86a 45%, #b39cff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none !important;
+}
+
+.mundo-text::before {
+    background: linear-gradient(to bottom, transparent, var(--violet) 10%, var(--blue) 50%, var(--gold) 90%, transparent) !important;
+    box-shadow: 0 0 14px rgba(119, 100, 216, .18);
+}
+
+.mundo-text p {
+    color: #aeb6ca !important;
+}
+
+.mundo-emphasis,
+.mundo-velo {
+    color: var(--gold-light) !important;
+    text-shadow: 0 0 22px rgba(216, 184, 106, .15), 0 0 45px rgba(119, 100, 216, .10);
+}
+
+.mundo-secondary {
+    color: #77829a !important;
+}
+
+.mundo-mapa {
+    overflow: hidden;
+    border-color: rgba(216, 184, 106, .20) !important;
+}
+
+.mundo-mapa-header {
+    border-bottom-color: rgba(216, 184, 106, .17) !important;
+}
+
+.mundo-mapa-header h2 {
+    color: var(--gold-light) !important;
+}
+
+/* ---------- IRL ---------- */
+
+.irl-section .section-head {
+    border-bottom-color: rgba(125, 151, 212, .17) !important;
+}
+
+.irl-person {
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 85% 10%, rgba(63, 130, 232, .12), transparent 32%),
+        linear-gradient(145deg, rgba(10, 23, 47, .92), rgba(5, 11, 26, .96)) !important;
+}
+
+.irl-photo {
+    background: #030813 !important;
+    border-color: rgba(216, 184, 106, .20) !important;
+}
+
+.irl-photo::after {
+    background: linear-gradient(180deg, transparent 55%, rgba(3, 8, 18, .78)) !important;
+}
+
+.irl-person-info h3 {
+    color: var(--gold-light) !important;
+}
+
+.irl-label {
+    color: var(--blue-light) !important;
+}
+
+/* ---------- GALERÍA ---------- */
+
+.gallery-header {
+    background:
+        radial-gradient(circle at 50% 0%, rgba(119, 100, 216, .12), transparent 40%),
+        rgba(6, 14, 30, .86) !important;
+}
+
+.gallery-grid {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.gallery-grid img {
+    border-color: rgba(216, 184, 106, .16) !important;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, .30);
+    transition: transform .5s var(--ease), filter .5s ease, border-color .35s ease, box-shadow .5s ease !important;
+}
+
+.gallery-grid img:hover {
+    border-color: rgba(216, 184, 106, .48) !important;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .45), 0 0 35px rgba(104, 124, 255, .10) !important;
+    filter: saturate(1.08) contrast(1.03);
+}
+
+.lightbox {
+    background: rgba(1, 4, 12, .94) !important;
+    backdrop-filter: blur(18px);
+}
+
+.lightbox-arrow,
+.lightbox-close {
+    color: var(--gold-light) !important;
+    border-color: rgba(216, 184, 106, .25) !important;
+    background: rgba(8, 16, 34, .72) !important;
+}
+
+/* ---------- PRESENTACIÓN ---------- */
+
+.presentation-title h1 {
+    background: linear-gradient(180deg, #fff7dc, #d8b86a 52%, #b39cff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.presentation-title h1::after {
+    background: linear-gradient(90deg, transparent, var(--violet), var(--gold), var(--blue), transparent) !important;
+    box-shadow: 0 0 15px rgba(119, 100, 216, .35);
+}
+
+.presentation video {
+    border-color: rgba(216, 184, 106, .24) !important;
+    box-shadow: 0 30px 100px rgba(0, 0, 0, .58), 0 0 45px rgba(104, 124, 255, .07) !important;
+}
+
+/* ---------- SELLADO ---------- */
+
+.sealed-page::before {
+    color: rgba(179, 156, 255, .07) !important;
+    text-shadow: 0 0 70px rgba(104, 124, 255, .20) !important;
+}
+
+.sealed-page::after {
+    background: radial-gradient(circle, rgba(104, 124, 255, .12), transparent 68%) !important;
+}
+
+.sealed-header {
+    border-bottom-color: rgba(216, 184, 106, .20) !important;
+}
+
+.sealed-header::after {
+    background: linear-gradient(90deg, var(--gold), var(--violet), transparent) !important;
+}
+
+.sealed-content h1 span,
+.sealed-text p:nth-child(3),
+.sealed-text p:nth-child(5) {
+    color: var(--gold-light) !important;
+}
+
+.sealed-line {
+    background: linear-gradient(90deg, var(--gold), var(--violet), var(--blue), transparent) !important;
+}
+
+.sealed-notification {
+    border-color: rgba(216, 184, 106, .20) !important;
+    background:
+        radial-gradient(circle at 0 50%, rgba(119, 100, 216, .13), transparent 45%),
+        rgba(7, 15, 32, .82) !important;
+    box-shadow: 0 18px 55px rgba(0, 0, 0, .30), inset 0 0 35px rgba(104, 124, 255, .04);
+}
+
+.sealed-footer {
+    border-top-color: rgba(125, 151, 212, .14) !important;
+}
+
+/* ---------- BOTONES / ENLACES GENERALES ---------- */
+
+.back-button,
+.archive-access-end a,
+.organizacion-card-link,
+.universidad-link {
+    transition: transform .3s var(--ease), color .3s ease, border-color .3s ease, box-shadow .3s ease, background .3s ease !important;
+}
+
+.back-button:hover,
+.archive-access-end a:hover,
+.organizacion-card-link:hover,
+.universidad-link:hover {
+    color: var(--gold-light) !important;
+    border-color: rgba(216, 184, 106, .45) !important;
+    box-shadow: 0 0 28px rgba(104, 124, 255, .10), inset 0 0 25px rgba(119, 100, 216, .05) !important;
+}
+
+/* ---------- DETALLES DE AMBIENTACIÓN ---------- */
+
+.bastion-page,
+.entidad-page {
+    background:
+        radial-gradient(ellipse at 50% 12%, rgba(70, 105, 210, .09), transparent 32%),
+        radial-gradient(ellipse at 85% 75%, rgba(119, 100, 216, .08), transparent 28%) !important;
+}
+
+.bastion-hero,
+.entidad-hero {
+    isolation: isolate;
+}
+
+.bastion-hero::before,
+.entidad-hero::before {
+    background:
+        radial-gradient(circle, rgba(104, 124, 255, .14), transparent 58%) !important;
+}
+
+.bastion-hero-mark,
+.entidad-hero-mark {
+    border-color: rgba(216, 184, 106, .38) !important;
+    box-shadow: 0 0 35px rgba(104, 124, 255, .10), inset 0 0 25px rgba(119, 100, 216, .08);
+}
+
+.bastion-history-emphasis,
+.entidad-lore-emphasis {
+    color: var(--gold-light) !important;
+    text-shadow: 0 0 25px rgba(216, 184, 106, .12);
+}
+
+/* ---------- ACCESIBILIDAD ---------- */
+
+::selection {
+    color: #071021;
+    background: rgba(216, 184, 106, .82);
+}
+
+:focus-visible {
+    outline: 1px solid var(--gold-light) !important;
+    outline-offset: 4px;
+    box-shadow: 0 0 0 4px rgba(104, 124, 255, .12) !important;
+}
+
+@media (max-width: 950px) {
+    nav {
+        padding-left: 4vw !important;
+        padding-right: 4vw !important;
+    }
+}
+
+@media (max-width: 650px) {
+    body::before {
+        opacity: .28 !important;
+        background-size: 105px 105px, 170px 170px, 245px 245px, 330px 330px !important;
+    }
+
+    nav {
+        background: linear-gradient(180deg, rgba(2, 6, 17, .99), rgba(3, 8, 20, .92)) !important;
+    }
+
+    .hero::after {
+        width: 86vw !important;
+        height: 86vw !important;
+    }
+
+    .archive-page::after,
+    .irl-page::after,
+    .expedient-page::after,
+    .mundo-page::after,
+    .organizaciones-section::after,
+    .bastion-page::after,
+    .sealed-page::after,
+    .home-index::after {
+        inset: .7rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    body::before,
+    body::after,
+    .hero::before,
+    .hero::after {
+        animation: none !important;
+    }
+}
+
+/* ---------- ANIMACIONES PROPIAS DEL TEMA ---------- */
+
+@keyframes veloStars {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-45px, 30px, 0);
+    }
+}
+
+@keyframes veloNebula {
+    0% {
+        transform: translate3d(-1%, 0, 0) scale(1);
+        opacity: .78;
+    }
+
+    50% {
+        transform: translate3d(1%, 1%, 0) scale(1.035);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate3d(-1%, -1%, 0) scale(1.015);
+        opacity: .82;
+    }
+}

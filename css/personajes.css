@@ -1,0 +1,197 @@
+/* VELO · PERSONAJES
+Índice de personajes: buscador, contador y tarjetas. */
+
+/* HERRAMIENTAS */
+.characters-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.characters-toolbar input {
+    width: min(420px, 100%);
+    padding: 13px 16px;
+    outline: none;
+    background: radial-gradient(circle at 90% 50%, rgba(120, 101, 185, .06), transparent 35%), linear-gradient(145deg, #0c0f16, #090b10);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    font: inherit;
+    transition: border-color .3s ease, box-shadow .3s ease, background .4s ease;
+}
+
+.characters-toolbar input::placeholder {
+    color: var(--muted2);
+}
+
+.characters-toolbar input:focus {
+    border-color: rgba(200, 167, 107, .5);
+    box-shadow: 0 0 0 3px rgba(200, 167, 107, .04), 0 0 25px rgba(200, 167, 107, .05), 0 0 40px rgba(120, 101, 185, .05);
+    background: radial-gradient(circle at 90% 50%, rgba(120, 101, 185, .1), transparent 40%), linear-gradient(145deg, #0e1119, #090b10);
+}
+
+.count {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* REJILLA */
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+/* TARJETA */
+.character-card {
+    position: relative;
+    min-height: 205px;
+    padding: 22px;
+    cursor: pointer;
+    overflow: hidden;
+    background: radial-gradient(circle at 85% 10%, rgba(120, 101, 185, .065), transparent 30%), linear-gradient(145deg, #10131b, #0a0c11);
+    border: 1px solid rgba(255, 255, 255, .06);
+    transition: transform .35s var(--ease), border-color .35s ease, box-shadow .35s ease, background .35s ease;
+}
+
+.character-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 80%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(200, 167, 107, .045), rgba(157, 139, 212, .04), transparent);
+    transform: skewX(-20deg);
+    transition: left .7s ease;
+}
+
+.character-card::after {
+    content: "✧";
+    position: absolute;
+    right: 12px;
+    bottom: 6px;
+    color: rgba(157, 139, 212, .055);
+    font-family: "Cinzel", serif;
+    font-size: 80px;
+    line-height: 1;
+    pointer-events: none;
+    transition: color .4s ease, transform .5s ease;
+}
+
+.character-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(200, 167, 107, .65);
+    background: radial-gradient(circle at 85% 10%, rgba(120, 101, 185, .1), transparent 32%), linear-gradient(145deg, #141821, #0b0e14);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .32), 0 0 24px rgba(200, 167, 107, .04), inset 0 0 30px rgba(120, 101, 185, .025);
+}
+
+.character-card:hover::before {
+    left: 140%;
+}
+
+.character-card:hover::after {
+    color: rgba(157, 139, 212, .1);
+    transform: rotate(15deg) scale(1.05);
+}
+
+/* CABECERA DE TARJETA */
+.card-top {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.sigil {
+    color: var(--gold);
+    transition: transform .35s ease, text-shadow .35s ease;
+}
+
+.character-card:hover .sigil {
+    transform: rotate(45deg) scale(1.08);
+    text-shadow: 0 0 12px rgba(200, 167, 107, .35), 0 0 25px rgba(120, 101, 185, .18);
+}
+
+.classification {
+    color: #777d8c;
+    font-size: 8px;
+    letter-spacing: .18em;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+/* CONTENIDO DE TARJETA */
+.character-card h3 {
+    position: relative;
+    z-index: 2;
+    margin: 28px 0 8px;
+    font-size: 20px;
+    transition: color .25s ease, text-shadow .25s ease;
+}
+
+.character-card:hover h3 {
+    color: var(--gold-light);
+    text-shadow: 0 0 15px rgba(200, 167, 107, .12);
+}
+
+.character-card p {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    color: #858a99;
+    font-size: 12px;
+}
+
+.card-line {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 35px;
+    height: 1px;
+    margin-top: 22px;
+    background: linear-gradient(90deg, var(--gold), var(--violet));
+    transition: width .4s var(--ease), box-shadow .4s ease;
+}
+
+.character-card:hover .card-line {
+    width: 60px;
+    box-shadow: 0 0 10px rgba(200, 167, 107, .25), 0 0 20px rgba(120, 101, 185, .12);
+}
+
+/* RESPONSIVE */
+@media(max-width:950px) {
+    .character-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media(max-width:650px) {
+    .character-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .characters-toolbar {
+        align-items: stretch;
+    }
+
+    .characters-toolbar input {
+        width: 100%;
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+    .character-card,
+    .character-card::before,
+    .character-card::after,
+    .sigil,
+    .character-card h3,
+    .card-line,
+    .characters-toolbar input {
+        transition: none;
+    }
+}

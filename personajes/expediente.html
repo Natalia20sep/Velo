@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expediente | VELO</title>
+    <link rel="stylesheet" href="../estilos.css">
+</head>
+<body>
+    <nav>
+        <a class="logo" href="../index.html">VELO</a>
+        <div class="navlinks">
+            <a href="../mundo/mundo.html">Mundo</a>
+            <a href="../organizaciones/organizaciones.html">Organizaciones</a>
+            <a href="./personajes.html">Personajes</a>
+            <a href="../archivo/archivo.html">Archivo</a>
+            <a href="../sellado/sellado.html">Aviso</a>
+            <div class="nav-dropdown">
+                <button class="nav-dropdown-btn">Miscelánea</button>
+                <div class="nav-dropdown-menu">
+                    <a href="../cronologia/cronologia.html">Cronología</a>
+                    <a href="../presentacion/presentacion.html">Presentación</a>
+                    <a href="../galeria/galeria.html">Galería</a>
+                    <a href="../irl/irl.html">IRL</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="expedient-page">
+        <header class="file-header">
+            <div class="file-header-main">
+                <span>VELO · ARCHIVO CENTRAL</span>
+                <strong>EXPEDIENTE DE INDIVIDUO</strong>
+            </div>
+        </header>
+        <section class="file-identity">
+            <div class="file-number">
+                <span>REGISTRO DE INDIVIDUO</span>
+                <strong id="characterName">Cargando...</strong>
+            </div>
+            <div class="file-stamp">ARCHIVO<br>CENTRAL</div>
+        </section>
+        <section class="identity-sheet">
+            <aside class="identity-photo">
+                <div class="photo-frame">
+                    <img id="characterPhoto" src="" alt="">
+                </div>
+                <div class="identity-status">
+                    <span>ESTADO DEL INDIVIDUO</span>
+                    <strong id="status">Desconocido</strong>
+                </div>
+            </aside>
+
+            <div class="identity-data">
+                <div class="sheet-heading">
+                    <span>01</span>
+                    <h2>Identificación</h2>
+                </div>
+                <div class="identity-grid" id="identityGrid"></div>
+                <div class="identity-grid additional-data" id="additionalData"></div>
+            </div>
+        </section>
+        <section class="file-section">
+            <div class="sheet-heading">
+                <span>02</span>
+                <h2>Frases Célebres</h2>
+            </div>
+            <div class="quotes-file" id="quotes"></div>
+        </section>
+        <section class="file-section">
+            <div class="sheet-heading">
+                <span>03</span>
+                <h2>Relaciones</h2>
+            </div>
+            <div class="relations-file" id="relations"></div>
+        </section>
+        <section class="file-section">
+            <div class="sheet-heading">
+                <span>04</span>
+                <h2>Descripción</h2>
+            </div>
+            <div class="file-text" id="description"></div>
+        </section>
+        <section class="file-section">
+            <div class="sheet-heading">
+                <span>05</span>
+                <h2>Historia</h2>
+            </div>
+            <div class="file-text" id="history"></div>
+        </section>
+        <section class="file-section visual-records">
+            <div class="sheet-heading">
+                <span>05</span>
+                <h2>Material visual</h2>
+            </div>
+            <div class="photo-records" id="personalAlbum"></div>
+        </section>
+        <section class="file-section document-records-section">
+            <div class="sheet-heading">
+                <span>06</span>
+                <h2>Documentación asociada</h2>
+            </div>
+            <div id="characterDocuments"></div>
+        </section>
+        <footer class="file-end">
+            <span>VELO · ARCHIVO CENTRAL · FIN DEL EXPEDIENTE</span>
+            <a href="./personajes.html" class="back-button"> Volver al archivo</a>
+        </footer>
+    </main>
+    <script src="../js/core.js"></script>
+    <script src="../js/efectos.js"></script>
+    <script src="../js/personaje.js"></script>
+</body>
+
+</html>

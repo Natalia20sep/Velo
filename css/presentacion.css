@@ -1,0 +1,81 @@
+/* =========================================================
+VELO · PRESENTACIÓN
+========================================================= */
+
+/* PRESENTACIÓN */
+.presentation {
+    width: min(1500px, calc(100% - 48px));
+    min-height: calc(100vh - 77px);
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.presentation video {
+    display: block;
+    width: 100%;
+    max-height: calc(100vh - 157px);
+    background: #000;
+    border: 1px solid var(--line);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, .45);
+}
+
+/* TÍTULO */
+.presentation-title {
+    width: min(1100px, calc(100% - 48px));
+    margin: 70px auto 35px;
+    text-align: center;
+}
+
+.presentation-title span {
+    display: block;
+    margin-bottom: 14px;
+    color: var(--gold);
+    font-size: .7rem;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+}
+
+.presentation-title h1 {
+    margin: 0;
+    color: var(--ink);
+    font-family: Cinzel, serif;
+    font-size: clamp(2rem, 4vw, 3.8rem);
+    font-weight: 400;
+    letter-spacing: .04em;
+    line-height: 1.15;
+}
+
+.presentation-title p {
+    margin: 16px 0 0;
+    color: var(--muted);
+    font-size: .85rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.presentation-title h1::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 1px;
+    margin: 24px auto 0;
+    background: var(--gold);
+    opacity: .7;
+}
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+    .presentation {
+        width: calc(100% - 28px);
+        min-height: calc(100vh - 65px);
+        padding: 20px 0;
+    }
+
+    .presentation video {
+        max-height: calc(100vh - 105px);
+    }
+
+}

@@ -1,0 +1,1679 @@
+/* ============================================================
+   VELO · ARCHIVO CENTRAL
+   Diseño específico del Archivo.
+   No depende del espaciado global de core.css.
+   ============================================================ */
+
+
+/* ============================================================
+   CONTENEDOR PRINCIPAL
+   ============================================================ */
+
+.archive-page {
+    position: relative;
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 118px 0 55px;
+
+    box-sizing: border-box;
+
+    isolation: isolate;
+}
+
+
+/*
+   Evita que reglas globales sobre section, article, header,
+   main o similares alteren la composición del Archivo.
+*/
+
+.archive-page section,
+.archive-page article,
+.archive-page header,
+.archive-page aside {
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   INTRODUCCIÓN
+   ============================================================ */
+
+.archive-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+
+    gap: 30px;
+
+    margin: 0 0 24px;
+    padding: 0 0 20px;
+
+    border-bottom: 1px solid var(--line);
+}
+
+
+.archive-eyebrow {
+    display: block;
+
+    margin: 0 0 8px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+
+    color: var(--gold);
+}
+
+
+.archive-intro h1 {
+    margin: 0;
+
+    font-family: "Cinzel", serif;
+    font-size: clamp(42px, 6vw, 68px);
+    font-weight: 400;
+    line-height: .95;
+    letter-spacing: .02em;
+
+    color: var(--ink);
+}
+
+
+.archive-intro p {
+    max-width: 650px;
+
+    margin: 12px 0 0;
+
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    line-height: 1.65;
+
+    color: var(--muted);
+}
+
+
+.archive-intro-code {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+
+    padding-bottom: 2px;
+
+    font-family: "Inter", sans-serif;
+    text-align: right;
+}
+
+
+.archive-intro-code span {
+    font-size: 6px;
+    font-weight: 600;
+    letter-spacing: .18em;
+
+    color: var(--muted2);
+}
+
+
+.archive-intro-code strong {
+    font-family: "Cinzel", serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: .08em;
+
+    color: var(--gold-light);
+}
+
+
+/* ============================================================
+   ESTADO
+   ============================================================ */
+
+.archive-status-panel {
+    position: relative;
+
+    margin: 0 0 10px;
+
+    border: 1px solid var(--line);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.018),
+            rgba(255,255,255,.003)
+        );
+}
+
+
+.archive-status-panel::before {
+    content: "";
+
+    position: absolute;
+    top: -1px;
+    left: 22px;
+
+    width: 75px;
+    height: 1px;
+
+    background: var(--gold);
+}
+
+
+.archive-status-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 14px 17px;
+
+    border-bottom: 1px solid var(--line-soft);
+}
+
+
+.archive-status-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+
+.archive-label {
+    font-family: "Inter", sans-serif;
+    font-size: 6px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+
+    color: var(--muted2);
+}
+
+
+.archive-status-title h2 {
+    margin: 0;
+
+    font-family: "Cinzel", serif;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: .05em;
+
+    color: var(--gold-light);
+}
+
+
+.archive-access {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 7px 10px;
+
+    border: 1px solid rgba(120,101,185,.28);
+
+    background: rgba(120,101,185,.035);
+}
+
+
+.archive-access span {
+    font-family: "Inter", sans-serif;
+    font-size: 6px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+
+    color: var(--muted2);
+}
+
+
+.archive-access strong {
+    padding-left: 10px;
+
+    border-left: 1px solid rgba(120,101,185,.3);
+
+    font-family: "Cinzel", serif;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: .1em;
+
+    color: var(--violet-light);
+}
+
+
+.archive-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+
+.archive-stat {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 8px;
+
+    min-width: 0;
+
+    padding: 11px 10px;
+
+    border-right: 1px solid var(--line-soft);
+}
+
+
+.archive-stat:last-child {
+    border-right: 0;
+}
+
+
+.archive-stat span {
+    font-family: "Inter", sans-serif;
+    font-size: 6px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+
+    color: var(--muted2);
+}
+
+
+.archive-stat strong {
+    font-family: "Cinzel", serif;
+    font-size: 19px;
+    font-weight: 400;
+
+    color: var(--gold-light);
+}
+
+
+.archive-notice {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin: 0 12px 12px;
+    padding: 8px 11px;
+
+    border-left: 2px solid var(--gold);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(216,184,106,.035),
+            transparent
+        );
+}
+
+
+.archive-notice span {
+    flex-shrink: 0;
+
+    font-family: "Inter", sans-serif;
+    font-size: 6px;
+    font-weight: 600;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+
+    color: var(--gold);
+}
+
+
+.archive-notice p {
+    margin: 0;
+
+    font-family: "Inter", sans-serif;
+    font-size: 8px;
+    line-height: 1.5;
+
+    color: var(--muted);
+}
+
+
+/* ============================================================
+   CONSULTA
+   ============================================================ */
+
+.archive-query {
+    display: grid;
+    grid-template-columns: minmax(260px, .9fr) minmax(0, 1.5fr);
+    align-items: end;
+
+    gap: 25px;
+
+    margin: 0 0 20px;
+    padding: 0;
+}
+
+
+/* ============================================================
+   BUSCADOR
+   ============================================================ */
+
+.archive-search {
+    min-width: 0;
+}
+
+
+.archive-search label {
+    display: block;
+
+    margin: 0 0 6px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 6px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+
+    color: var(--muted2);
+}
+
+
+.archive-search-box {
+    display: flex;
+    align-items: center;
+
+    height: 38px;
+
+    border: 1px solid var(--line);
+
+    background: rgba(8,12,20,.7);
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.archive-search-box:focus-within {
+    border-color: rgba(216,184,106,.45);
+
+    box-shadow:
+        0 0 0 2px rgba(216,184,106,.025);
+}
+
+
+.archive-search-mark {
+    display: grid;
+    place-items: center;
+
+    width: 34px;
+
+    font-family: "Cinzel", serif;
+    font-size: 15px;
+
+    color: var(--gold);
+}
+
+
+.archive-search input {
+    min-width: 0;
+    width: 100%;
+    height: 100%;
+
+    padding: 0 8px 0 0;
+
+    border: 0;
+    outline: 0;
+
+    background: transparent;
+
+    color: var(--ink);
+
+    font-family: "Inter", sans-serif;
+    font-size: 9px;
+}
+
+
+.archive-search input::placeholder {
+    color: var(--muted2);
+}
+
+
+.archive-result-count {
+    flex-shrink: 0;
+
+    padding: 0 11px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 6px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    white-space: nowrap;
+
+    color: var(--muted2);
+}
+
+
+/* ============================================================
+   CLASIFICACIÓN
+   ============================================================ */
+
+.archive-classification {
+    min-width: 0;
+}
+
+
+.archive-classification-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 0 0 6px;
+}
+
+
+.archive-classification-head span {
+    font-family: "Inter", sans-serif;
+    font-size: 6px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+
+    color: var(--muted2);
+}
+
+
+.archive-classification-head small {
+    font-family: "Inter", sans-serif;
+    font-size: 6px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+
+    color: var(--muted2);
+}
+
+
+.archive-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+
+.archive-filter {
+    min-height: 29px;
+
+    padding: 5px 9px;
+
+    border: 1px solid var(--line-soft);
+
+    background: rgba(10,14,23,.55);
+
+    color: var(--muted2);
+
+    cursor: pointer;
+
+    font-family: "Inter", sans-serif;
+    font-size: 6px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+
+    transition:
+        color .2s ease,
+        background .2s ease,
+        border-color .2s ease;
+}
+
+
+.archive-filter:hover,
+.archive-filter.active {
+    border-color: rgba(216,184,106,.4);
+
+    background: rgba(216,184,106,.045);
+
+    color: var(--gold-light);
+}
+
+
+/* ============================================================
+   ÍNDICE
+   ============================================================ */
+
+.archive-index {
+    margin: 0;
+    padding: 0;
+}
+
+
+.archive-index-heading {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 0 0 10px;
+    padding: 0 0 8px;
+
+    border-bottom: 1px solid var(--line-soft);
+}
+
+
+.archive-index-heading > div:first-child {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+
+.archive-index-heading span {
+    font-family: "Inter", sans-serif;
+    font-size: 6px;
+    font-weight: 600;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+
+    color: var(--gold);
+}
+
+
+.archive-index-heading h2 {
+    margin: 0;
+
+    font-family: "Cinzel", serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: .04em;
+
+    color: var(--gold-light);
+}
+
+
+.archive-index-line {
+    flex: 1;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(216,184,106,.16),
+            transparent
+        );
+}
+
+
+/* ============================================================
+   LISTADO
+   ============================================================ */
+
+.archive-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 9px;
+}
+
+
+.archive-record {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    min-height: 0;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(136,157,208,.15);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(12,18,32,.9),
+            rgba(7,11,20,.92)
+        );
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.archive-record::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 70px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold),
+            transparent
+        );
+}
+
+
+.archive-record:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(216,184,106,.28);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.28);
+}
+
+
+.archive-record.is-hidden {
+    display: none;
+}
+
+
+/* ============================================================
+   CABECERA DEL REGISTRO
+   ============================================================ */
+
+.archive-record-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 31px;
+
+    padding: 0 11px;
+
+    border-bottom: 1px solid var(--line-soft);
+}
+
+
+.archive-code {
+    font-family: "Inter", sans-serif;
+    font-size: 6px;
+    font-weight: 600;
+    letter-spacing: .18em;
+
+    color: var(--gold);
+}
+
+
+.archive-level {
+    padding: 3px 6px;
+
+    border: 1px solid rgba(216,184,106,.15);
+
+    font-family: "Inter", sans-serif;
+    font-size: 5px;
+    font-weight: 600;
+    letter-spacing: .12em;
+
+    color: var(--muted2);
+}
+
+
+/* ============================================================
+   CONTENIDO DEL REGISTRO
+   ============================================================ */
+
+.archive-record-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    padding: 13px 14px 11px;
+}
+
+
+.archive-record-info {
+    min-width: 0;
+}
+
+
+.archive-record-category {
+    margin: 0 0 5px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 5px;
+    font-weight: 600;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+
+    color: var(--violet-light);
+}
+
+
+.archive-record h3 {
+    margin: 0 0 6px;
+
+    font-family: "Cinzel", serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.2;
+
+    color: var(--ink);
+
+    transition: color .2s ease;
+}
+
+
+.archive-record:hover h3 {
+    color: var(--gold-light);
+}
+
+
+.archive-record-info p {
+    max-width: 620px;
+
+    margin: 0;
+
+    font-family: "Inter", sans-serif;
+    font-size: 8px;
+    line-height: 1.55;
+
+    color: var(--muted);
+}
+
+
+/* ============================================================
+   PIE DEL REGISTRO
+   ============================================================ */
+
+.archive-record-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-top: 12px;
+    padding-top: 9px;
+
+    border-top: 1px solid rgba(255,255,255,.045);
+}
+
+
+.archive-material {
+    font-family: "Inter", sans-serif;
+    font-size: 5px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+
+    color: var(--muted2);
+}
+
+
+.archive-material-restricted {
+    color: #bd7abd;
+}
+
+
+/* ============================================================
+   BOTÓN
+   ============================================================ */
+
+.open-record {
+    flex-shrink: 0;
+
+    padding: 6px 8px;
+
+    border: 1px solid rgba(216,184,106,.22);
+
+    background: rgba(216,184,106,.015);
+
+    color: var(--gold);
+
+    cursor: pointer;
+
+    font-family: "Inter", sans-serif;
+    font-size: 5px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        color .2s ease;
+}
+
+
+.open-record::after {
+    content: " →";
+    color: var(--violet-light);
+}
+
+
+.open-record:hover {
+    border-color: rgba(216,184,106,.45);
+
+    background: rgba(216,184,106,.045);
+
+    color: var(--gold-light);
+}
+
+
+/* ============================================================
+   RESTRINGIDOS
+   ============================================================ */
+
+.archive-record-restricted {
+    border-color: rgba(160,91,208,.28);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,12,25,.92),
+            rgba(8,10,17,.95)
+        );
+}
+
+
+.archive-record-restricted::before {
+    background:
+        linear-gradient(
+            90deg,
+            var(--fuchsia),
+            transparent
+        );
+}
+
+
+.archive-record-restricted .archive-code,
+.archive-record-restricted .archive-record-category {
+    color: #bd7abd;
+}
+
+
+.archive-record-restricted .archive-level {
+    border-color: rgba(160,91,208,.3);
+    color: #bd7abd;
+}
+
+
+/* ============================================================
+   CONTENIDO INTERNO DEL EXPEDIENTE
+   ============================================================ */
+
+.archive-full-content {
+    display: none;
+}
+
+
+/*
+   Cuando posteriormente quieras añadir estructura rica
+   dentro de un expediente puedes utilizar:
+
+   .archive-section
+   .archive-data-grid
+   .archive-transcription
+   .archive-gallery
+   .archive-image
+   .archive-empty-text
+*/
+
+.archive-gallery {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.archive-image {
+    width: 100%;
+    margin: 0;
+}
+
+.archive-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+.archive-document-text p {
+    margin: 0 0 13px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    line-height: 1.8;
+
+    color: var(--muted);
+}
+
+
+.archive-document-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ============================================================
+   ESTADO VACÍO
+   ============================================================ */
+
+.archive-empty {
+    display: none;
+
+    margin: 10px 0 0;
+    padding: 28px 20px;
+
+    border: 1px solid var(--line-soft);
+
+    text-align: center;
+}
+
+
+.archive-empty.is-visible {
+    display: block;
+}
+
+
+.archive-empty span {
+    display: block;
+
+    margin: 0 0 7px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 6px;
+    font-weight: 600;
+    letter-spacing: .18em;
+
+    color: var(--gold);
+}
+
+
+.archive-empty p {
+    margin: 0;
+
+    font-family: "Inter", sans-serif;
+    font-size: 8px;
+
+    color: var(--muted2);
+}
+
+
+/* ============================================================
+   NOTA
+   ============================================================ */
+
+.archive-warning {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    margin: 20px 0 0;
+    padding: 13px 15px;
+
+    border: 1px solid rgba(160,91,208,.16);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(160,91,208,.035),
+            transparent
+        );
+}
+
+
+.archive-warning span {
+    display: block;
+
+    margin: 0 0 5px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 6px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+
+    color: #bd7abd;
+}
+
+
+.archive-warning p {
+    max-width: 760px;
+
+    margin: 0;
+
+    font-family: "Inter", sans-serif;
+    font-size: 7px;
+    line-height: 1.6;
+
+    color: var(--muted);
+}
+
+
+.archive-warning a {
+    flex-shrink: 0;
+
+    padding: 7px 9px;
+
+    border: 1px solid rgba(160,91,208,.3);
+
+    color: #bd7abd;
+
+    font-family: "Inter", sans-serif;
+    font-size: 5px;
+    font-weight: 600;
+    letter-spacing: .13em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+.archive-warning a:hover {
+    border-color: rgba(160,91,208,.55);
+    background: rgba(160,91,208,.05);
+    color: #ce8bce;
+}
+
+
+/* ============================================================
+   FINAL
+   ============================================================ */
+
+.archive-end {
+    display: flex;
+    justify-content: center;
+
+    margin: 15px 0 0;
+    padding: 9px 0;
+
+    border-top: 1px solid var(--line-soft);
+}
+
+
+.archive-end span {
+    font-family: "Inter", sans-serif;
+    font-size: 5px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+
+    color: var(--muted2);
+}
+
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+
+.archive-modal {
+    position: fixed;
+    inset: 0;
+
+    z-index: 1000;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(3,4,8,.88);
+
+    backdrop-filter: blur(8px);
+}
+
+
+.archive-modal.is-open {
+    display: flex;
+}
+
+
+body.archive-modal-open,
+body.archive-viewer-open {
+    overflow: hidden;
+}
+
+
+.archive-document {
+    position: relative;
+
+    width: min(880px, 100%);
+    max-height: 88vh;
+
+    overflow: hidden;
+
+    border: 1px solid var(--line);
+
+    background:
+        linear-gradient(
+            145deg,
+            #0d121d,
+            #080b12
+        );
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.65);
+}
+
+
+.archive-document-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 47px;
+
+    padding: 0 15px;
+
+    border-bottom: 1px solid var(--line-soft);
+}
+
+
+.archive-document-header > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.archive-document-header span {
+    font-family: "Inter", sans-serif;
+    font-size: 6px;
+    font-weight: 600;
+    letter-spacing: .16em;
+
+    color: var(--gold);
+}
+
+
+.archive-document-header strong {
+    padding-left: 10px;
+
+    border-left: 1px solid var(--line-soft);
+
+    font-family: "Inter", sans-serif;
+    font-size: 5px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+
+    color: var(--muted2);
+}
+
+
+.archive-close,
+.archive-viewer-close {
+    display: grid;
+    place-items: center;
+
+    width: 28px;
+    height: 28px;
+
+    border: 1px solid var(--line-soft);
+
+    background: rgba(255,255,255,.02);
+
+    color: var(--muted);
+
+    cursor: pointer;
+
+    font-size: 17px;
+    line-height: 1;
+}
+
+
+.archive-close:hover,
+.archive-viewer-close:hover {
+    border-color: var(--gold);
+    color: var(--gold-light);
+}
+
+
+.archive-document-content {
+    max-height: calc(88vh - 92px);
+
+    overflow-y: auto;
+
+    padding: 25px;
+}
+
+
+.archive-document-classification {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin: 0 0 8px;
+}
+
+
+.archive-document-classification span {
+    font-family: "Inter", sans-serif;
+    font-size: 6px;
+    font-weight: 600;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+
+    color: var(--violet-light);
+}
+
+
+.archive-document-classification span + span {
+    padding-left: 9px;
+
+    border-left: 1px solid var(--line-soft);
+
+    color: var(--muted2);
+}
+
+
+.archive-document-content > h2 {
+    margin: 0 0 20px;
+
+    font-family: "Cinzel", serif;
+    font-size: clamp(27px, 4vw, 40px);
+    font-weight: 400;
+    line-height: 1.1;
+
+    color: var(--ink);
+}
+
+
+.archive-document-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 32px;
+
+    padding: 0 15px;
+
+    border-top: 1px solid var(--line-soft);
+
+    font-family: "Inter", sans-serif;
+    font-size: 5px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+
+    color: var(--muted2);
+}
+
+
+/* ============================================================
+   VISOR
+   ============================================================ */
+
+.archive-image-viewer {
+    position: fixed;
+    inset: 0;
+
+    z-index: 1100;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px;
+
+    background: rgba(2,3,7,.94);
+
+    backdrop-filter: blur(9px);
+}
+
+
+.archive-image-viewer.is-open {
+    display: flex;
+}
+
+
+.archive-image-window {
+    position: relative;
+
+    width: min(1050px, 100%);
+    max-height: 94vh;
+
+    overflow: hidden;
+
+    border: 1px solid var(--line);
+
+    background: #080a0e;
+}
+
+
+.archive-viewer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 34px;
+
+    padding: 0 12px;
+
+    border-bottom: 1px solid var(--line-soft);
+
+    font-family: "Inter", sans-serif;
+    font-size: 6px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+
+    color: var(--muted2);
+}
+
+
+.archive-viewer-close {
+    position: absolute;
+
+    top: 5px;
+    right: 5px;
+
+    z-index: 5;
+}
+
+
+.archive-viewer-image-area {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 280px;
+    max-height: 68vh;
+
+    padding: 25px 55px;
+}
+
+
+.archive-viewer-image-area img {
+    display: block;
+
+    max-width: 100%;
+    max-height: 62vh;
+
+    object-fit: contain;
+}
+
+
+.archive-viewer-nav {
+    position: absolute;
+    top: 50%;
+
+    width: 32px;
+    height: 42px;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    background: rgba(5,6,10,.7);
+
+    color: var(--muted);
+
+    cursor: pointer;
+
+    font-family: serif;
+    font-size: 25px;
+
+    transform: translateY(-50%);
+}
+
+
+.archive-viewer-nav:hover:not(:disabled) {
+    border-color: var(--gold);
+    color: var(--gold-light);
+}
+
+
+.archive-viewer-nav:disabled {
+    opacity: .2;
+    cursor: default;
+}
+
+
+.archive-viewer-prev {
+    left: 9px;
+}
+
+
+.archive-viewer-next {
+    right: 9px;
+}
+
+
+.archive-viewer-info {
+    padding: 12px 15px 15px;
+
+    border-top: 1px solid var(--line-soft);
+}
+
+
+.archive-viewer-info > span {
+    display: block;
+
+    margin: 0 0 5px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 5px;
+    font-weight: 600;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+
+    color: var(--gold);
+}
+
+
+.archive-viewer-info h2 {
+    margin: 0 0 5px;
+
+    font-family: "Cinzel", serif;
+    font-size: 15px;
+    font-weight: 400;
+
+    color: var(--ink);
+}
+
+
+.archive-viewer-info p {
+    max-width: 800px;
+
+    margin: 0;
+
+    font-family: "Inter", sans-serif;
+    font-size: 8px;
+    line-height: 1.6;
+
+    color: var(--muted);
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    .archive-query {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .archive-list {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .archive-page {
+        width: min(100% - 28px, 560px);
+        padding: 92px 0 35px;
+    }
+
+
+    .archive-intro {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        margin-bottom: 18px;
+        padding-bottom: 15px;
+    }
+
+
+    .archive-intro-code {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+
+    .archive-intro h1 {
+        font-size: 40px;
+    }
+
+
+    .archive-intro p {
+        font-size: 9px;
+    }
+
+
+    .archive-status-main {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+
+    .archive-status-title {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 4px;
+    }
+
+
+    .archive-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .archive-stat:nth-child(2) {
+        border-right: 0;
+    }
+
+
+    .archive-stat:nth-child(-n+2) {
+        border-bottom: 1px solid var(--line-soft);
+    }
+
+
+    .archive-notice {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
+
+    .archive-classification-head small {
+        display: none;
+    }
+
+
+    .archive-filter {
+        flex: 1 1 auto;
+    }
+
+
+    .archive-warning {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+
+    .archive-warning a {
+        align-self: flex-start;
+    }
+
+
+    .archive-modal {
+        padding: 10px;
+    }
+
+
+    .archive-document-content {
+        padding: 20px 16px;
+    }
+
+
+    .archive-document-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 3px;
+
+        padding: 7px 12px;
+    }
+
+
+    .archive-viewer-image-area {
+        min-height: 230px;
+
+        padding: 20px 40px;
+    }
+
+}
+
+
+@media (max-width: 430px) {
+
+    .archive-page {
+        width: min(100% - 20px, 560px);
+    }
+
+
+    .archive-search-box {
+        height: 36px;
+    }
+
+
+    .archive-result-count {
+        display: none;
+    }
+
+
+    .archive-record-content {
+        padding: 12px;
+    }
+
+
+    .archive-record h3 {
+        font-size: 16px;
+    }
+
+
+    .archive-record-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+
+    .open-record {
+        width: 100%;
+    }
+
+
+    .archive-document-content > h2 {
+        font-size: 27px;
+    }
+
+}
+
+
+/* ============================================================
+   ACCESIBILIDAD
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .archive-record,
+    .archive-filter,
+    .open-record {
+        transition: none;
+    }
+
+}

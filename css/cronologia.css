@@ -1,0 +1,130 @@
+/* VELO · CRONOLOGÍA
+Línea temporal y elementos específicos de la cronología. */
+
+/* CABECERA */
+.cronologia-page {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+    padding: 150px 7vw 80px;
+}
+
+.cronologia-page .page-intro {
+    margin-bottom: 55px;
+}
+
+/* LÍNEA TEMPORAL */
+.timeline {
+    position: relative;
+    margin-left: 15px;
+    padding-bottom: 10px;
+    border-left: 1px solid var(--gold-dark);
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--gold), var(--violet), transparent);
+    opacity: .45;
+    box-shadow: 0 0 10px rgba(120, 101, 185, .3);
+}
+
+/* EVENTOS */
+.event {
+    position: relative;
+    padding: 0 0 45px 35px;
+}
+
+.event:last-child {
+    padding-bottom: 0;
+}
+
+.event::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 8px;
+    width: 9px;
+    height: 9px;
+    background: var(--bg);
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    transition: background .3s ease, box-shadow .4s ease, transform .3s ease;
+}
+
+.event:hover::before {
+    background: var(--gold);
+    transform: scale(1.2);
+    box-shadow: 0 0 0 6px rgba(200, 167, 107, .06), 0 0 18px rgba(200, 167, 107, .3), 0 0 30px rgba(120, 101, 185, .18);
+}
+
+.year {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+}
+
+.event h3 {
+    margin: 7px 0;
+    font-size: 23px;
+    transition: color .25s ease, text-shadow .25s ease;
+}
+
+.event:hover h3 {
+    color: var(--gold-light);
+    text-shadow: 0 0 18px rgba(200, 167, 107, .15);
+}
+
+.event p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.85;
+}
+
+/* CITA */
+.cronologia-page .quote {
+    max-width: 800px;
+    margin: 0 auto 55px;
+    color: #d8c59d;
+    font-family: "Cinzel", serif;
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* RESPONSIVE */
+@media(max-width:650px) {
+    .cronologia-page {
+        padding: 120px 6vw 60px;
+    }
+
+    .timeline {
+        margin-left: 8px;
+    }
+
+    .event {
+        padding-left: 25px;
+        padding-bottom: 35px;
+    }
+
+    .event h3 {
+        font-size: 20px;
+    }
+
+    .cronologia-page .quote {
+        font-size: 18px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+    .event::before,
+    .event h3 {
+        transition: none;
+    }
+}
