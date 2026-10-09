@@ -28,6 +28,7 @@ const galleryImages = [
     "../imagenes/ships/Hera y Lysara (2).webp",
     "../imagenes/ships/Hera y Lysara (3).webp",
     "../imagenes/ships/Hera y Lysara (4).webp",
+    "../imagenes/ships/Hera y Lysara (5).webp",
     "../imagenes/ships/Kael y Garret (1).png",
     "../imagenes/ships/Kael y Vera (1).png",
     "../imagenes/ships/Kael y Vera (2).png",
