@@ -42,7 +42,9 @@ window.personaje = {
         "./imagenes/syra20.png",
         "./imagenes/syra21.png",
         "./imagenes/syra22.png",
-        "./imagenes/syra23.png"
+        "./imagenes/syra23.png",
+        "./imagenes/Syra (17).png",
+        "./imagenes/Syra (18).png"
     ],
     documentos: [
         {
