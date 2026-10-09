@@ -21,6 +21,8 @@ const galleryImages = [
     "../imagenes/ships/Garret y Elías (1).png",
     "../imagenes/ships/Garret y Lysara (1).png",
     "../imagenes/ships/Garret y Lysara (2).png",
+    "../imagenes/ships/Hera y Alessandro (1).jpeg",
+    "../imagenes/ships/Hera y Alessandro (2).jpeg",
     "../imagenes/ships/Hera y Garret (1).png",
     "../imagenes/ships/Hera y Garret (2).png",
     "../imagenes/ships/Hera y Garret (3).png",
