@@ -22,8 +22,7 @@ window.personaje = {
     galeria: [
         "./imagenes/riccardo1.png",
         "./imagenes/riccardo2.png",
-        "./imagenes/riccardo3.png",
-        "./imagenes/riccardo4.png"
+        "./imagenes/riccardo3.png"
     ],
     documentos: [
         {

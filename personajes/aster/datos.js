@@ -9,7 +9,7 @@ window.personaje = {
     cargo: "Delegado del club de informática",
     trabajo: "Estudiante de Ingeniería Informática",
     poder: "Lectura de datos",
-    linaje: "Desconocido",
+    linaje: "La Urdidora",
     prodigio: "No-prodigio",
     familia: "",
     relaciones: "Eiden: Compañero de departamento. Syra: Jefa.",
@@ -17,7 +17,7 @@ window.personaje = {
     descripcion: "Aster es un estudiante de Ingeniería Informática de SOMA, completamente analítico e inteligente. Es el delegado del club de informática y destaca por su capacidad para crear artilugios con todo tipo de funcionalidades. Aunque suele ser reservado y callado, se emociona con facilidad cuando algo despierta su interés.",
     historia: "No se conoce demasiado sobre el pasado de Aster. Actualmente estudia Ingeniería Informática en la universidad de SOMA junto a Eiden y trabaja dentro del departamento de Investigación de Bastión.\n\nComo delegado del club de informática, dedica gran parte de su tiempo a desarrollar nuevos dispositivos y artilugios. Su forma de pensar es extremadamente analítica y suele valorar constantemente las posibilidades de éxito o fracaso antes de tomar una decisión.",
     frasesCelebres: [
-        "Las probabilidades de acierto de conexión con el intercomunicador interdimensional son del 73%."
+        "Las probabilidades de acierto de conexión con el comunicador interdimensional son del 73%."
     ],
     galeria: [
         "./imagenes/aster1.png",

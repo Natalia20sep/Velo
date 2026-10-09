@@ -47,13 +47,13 @@
         field.append(labelEl, valueEl);
         return field;
     }
-
     function renderIdentity() {
         const grid = document.getElementById("identityGrid");
         if (!grid) return;
 
         const fields = [
             ["NOMBRE", "nombre"],
+            ["ALIAS", "alias"],
             ["EDAD", "edad"],
             ["LUGAR DE NACIMIENTO", "lugarDeNacimiento"],
             ["ALTURA", "altura"],
@@ -410,11 +410,11 @@
         if (!container) return;
 
         const reserved = new Set([
-            "nombre","alias","edad","lugarDeNacimiento","altura","familia","linaje",
-            "poder","prodigio","departamento","cargo","trabajo","estado","afiliacion",
-            "descripcion","descripción","historia","relaciones","frasesCelebres",
-            "expediente","clasificacion","busqueda","resumenes","tituloListado",
-            "galeria","documentos"
+            "nombre", "alias", "edad", "lugarDeNacimiento", "altura", "familia", "linaje",
+            "poder", "prodigio", "departamento", "cargo", "trabajo", "estado", "afiliacion",
+            "descripcion", "descripción", "historia", "relaciones", "frasesCelebres",
+            "expediente", "clasificacion", "busqueda", "resumenes", "tituloListado",
+            "galeria", "documentos"
         ]);
 
         const extras = Object.entries(getData()).filter(([key, val]) =>
@@ -489,15 +489,15 @@
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-    const cards = document.querySelectorAll(".character-card");
+        const cards = document.querySelectorAll(".character-card");
 
-    cards.forEach(card => {
-        card.addEventListener("click", () => {
-            const id = card.dataset.id;
-            if (!id) return;
+        cards.forEach(card => {
+            card.addEventListener("click", () => {
+                const id = card.dataset.id;
+                if (!id) return;
 
-            window.location.href = `expediente.html?personaje=${encodeURIComponent(id)}`;
+                window.location.href = `expediente.html?personaje=${encodeURIComponent(id)}`;
+            });
         });
     });
-});
 })();

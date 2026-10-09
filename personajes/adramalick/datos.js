@@ -12,7 +12,7 @@ window.personaje = {
     linaje: "Desconocido",
     prodigio: "Desconocido",
     familia: "",
-    relaciones: "Soben: Fue responsable de su muerte y posteriormente utilizó su cuerpo como recipiente para regresar a la vida.",
+    relaciones: "",
     lugarDeNacimiento: "Desconocido.",
     descripcion: "Adramalick es una figura oscura y perturbadora, ligada a la muerte y capaz de trascenderla, cuya existencia parece estar rodeada de secretos, sacrificios y fuerzas que escapan a la comprensión.",
     historia: "Adramalick fue responsable de la muerte de Soben. Posteriormente consiguió regresar a la vida utilizando el cuerpo de Soben como recipiente.\n\nSu existencia parece estar vinculada a fuerzas relacionadas con la muerte, los sacrificios y la trascendencia del alma. Una sombra femenina llegó a pronunciar una frase relacionada con él: «Que Adramalick se apiade de tu alma».",

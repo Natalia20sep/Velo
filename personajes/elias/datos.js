@@ -8,7 +8,7 @@ window.personaje = {
     departamento: "Militar",
     cargo: "Líder del Departamento Militar",
     trabajo: "Profesor",
-    poder: "Puede convertirse en hierro, expandirse, hacerse más pesado o endurecerse",
+    poder: "Hierro",
     linaje: "Hijos del Hierro",
     prodigio: "E23",
     familia: "Natasha: Hermana; Livya Vesper: Esposa fallecida",

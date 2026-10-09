@@ -19,7 +19,6 @@ window.personaje = {
     frasesCelebres: [
         "Habrá cosas que tendrás que estar dispuesta a perder, si quieres lograr aquello que te propongas."
     ],
-    fraseInstagram: "La verdadera autoridad no se impone con la fuerza; se demuestra manteniendo la calma en mitad de la tormenta",
     galeria: [
         "./imagenes/vera1.png",
         "./imagenes/vera2.png",

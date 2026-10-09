@@ -12,7 +12,7 @@ window.personaje = {
     linaje: "De la Muerte",
     prodigio: "Desconocido",
     familia: "Amara: Hermana",
-    relaciones: "Amara: Hermana. Es la única persona que continúa buscándola e intentando sacarla de la prisión.",
+    relaciones: "",
     lugarDeNacimiento: "Irlanda.",
     descripcion: "Alara es una mujer enigmática y difícil de descifrar, marcada por una identidad oculta y por su vinculación con la Prisión de Máxima Seguridad. Su verdadera naturaleza y el propósito que se esconde tras su presencia allí permanecen rodeados de incógnitas.",
     historia: "No se conoce demasiado sobre el pasado de Alara. Hace unos años fue capturada por Bastión y trasladada a la Prisión de Máxima Seguridad, donde permanece desde entonces.\n\nDesde su captura, su hermana Amara se ha dedicado a buscarla y a intentar encontrar una forma de sacarla de allí. Para Amara, Alara es su única familia y la persona que se niega a dar por perdida.",

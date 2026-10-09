@@ -23,8 +23,7 @@ window.personaje = {
         "./imagenes/darian1.png",
         "./imagenes/darian2.png",
         "./imagenes/darian3.png",
-        "./imagenes/darian4.png",
-        "./imagenes/darian5.png"
+        "./imagenes/darian4.png"
     ],
     documentos: [
         {

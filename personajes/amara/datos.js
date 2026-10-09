@@ -21,7 +21,8 @@ window.personaje = {
     ],
     galeria: [
         "./imagenes/amara1.png",
-        "./imagenes/amara2.png"
+        "./imagenes/amara2.png",
+        "./imagenes/amara3.png"
     ],
     documentos: [
         {
