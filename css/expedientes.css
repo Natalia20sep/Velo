@@ -406,6 +406,11 @@ Fichas individuales, registros y documentos de personajes. */
     transform: translateX(4px);
 }
 
+/* ALIAS DEL PERSONAJE */
+.identity-field.alias-field strong {
+    color: var(--gold-light);
+}
+
 /* RELACIONES */
 .relations-file {
     display: flex;
