@@ -1132,6 +1132,8 @@
     color: var(--gold-light);
     font-family: "Cinzel", serif;
     font-size: 36px;
+    width: 280px;
+    padding: 20px;
 }
 
 .bastion-symbol span {

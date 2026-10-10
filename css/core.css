@@ -171,10 +171,13 @@ a {
 }
 
 /* SECCIONES GENERALES */
+
 section {
-    max-width: 1300px;
-    margin: auto;
-    padding: 120px 7vw;
+    position: relative;
+    width: 100%;
+    max-width: 2000px;
+    margin-inline: auto;
+    padding: 120px 5vw;
 }
 
 section::after {
