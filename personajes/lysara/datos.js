@@ -29,7 +29,8 @@ window.personaje = {
         "./imagenes/lysara7.png",
         "./imagenes/lysara8.png",
         "./imagenes/lysara9.png",
-        "./imagenes/Lysara (6).jpeg",
+        "./imagenes/lysara10.png",
+        "./imagenes/lysara11.png"
     ],
     documentos: [
         {
