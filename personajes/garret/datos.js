@@ -1,5 +1,5 @@
 window.personaje = {
-    nombre: "Garret",
+    nombre: "Garret Cross",
     alias: "No tiene",
     edad: "29 años",
     altura: "1.96 m",

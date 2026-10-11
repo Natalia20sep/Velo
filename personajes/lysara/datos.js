@@ -1,5 +1,5 @@
 window.personaje = {
-    nombre: "Lysara",
+    nombre: "Lysara Voss",
     alias: "Lys",
     edad: "124",
     altura: "1.79 m",

@@ -1,5 +1,5 @@
 window.personaje = {
-    nombre: "Syra",
+    nombre: "Syra Vael",
     alias: "Saga",
     edad: "25 años",
     altura: "1.72 m",

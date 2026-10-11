@@ -1,5 +1,5 @@
 window.personaje = {
-    nombre: "Kassian",
+    nombre: "Kassian Vorler",
     alias: "No tiene",
     edad: "Desconocida",
     altura: "2.10 m",

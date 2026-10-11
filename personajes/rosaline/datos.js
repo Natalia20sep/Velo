@@ -1,5 +1,5 @@
 window.personaje = {
-    nombre: "Rosaline",
+    nombre: "Rosaline Valmont",
     alias: "No tiene",
     edad: "44",
     altura: "1.67 m",

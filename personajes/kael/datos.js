@@ -1,5 +1,5 @@
 window.personaje = {
-    nombre: "Kael",
+    nombre: "Kael Vael",
     alias: "No tiene",
     edad: "27 años",
     altura: "1.93 m",
