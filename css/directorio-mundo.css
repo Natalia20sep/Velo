@@ -1,0 +1,468 @@
+/* ==========================================
+   VELO · DIRECTORIO DE LUNATERRA
+=========================================== */
+
+.directorio-lunaterra {
+    width: 100%;
+    max-width: 1050px;
+    margin: 110px auto 40px;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+}
+
+
+/* CABECERA */
+
+.directorio-header {
+    max-width: 760px;
+    margin: 0 auto 75px;
+    margin-top: 0 !important;
+    margin-bottom: 15px !important;
+    padding-bottom: 0 !important;
+    text-align: center;
+}
+
+.directorio-kicker,
+.categoria-numero {
+    display: block;
+    color: var(--gold);
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+}
+
+.directorio-header h2 {
+    margin: 17px 0 15px;
+    color: var(--ink);
+    font-family: 'Cinzel', serif;
+    font-size: clamp(30px, 4vw, 43px);
+    font-weight: 400;
+    letter-spacing: .035em;
+}
+
+.directorio-header p {
+    max-width: 560px;
+    margin: 0 auto;
+    color: var(--muted);
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    line-height: 1.9;
+    letter-spacing: .08em;
+}
+
+
+/* CATEGORÍAS */
+
+.directorio-categoria {
+    margin: 0 0 68px;
+    margin-top: 0 !important;
+    margin-bottom: 12px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    min-height: 0 !important;
+}
+
+.categoria-cabecera {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 17px;
+    border-bottom: 1px solid var(--line);
+}
+
+.categoria-numero {
+    margin-bottom: 10px;
+    font-size: 8px;
+    letter-spacing: .22em;
+    opacity: .85;
+}
+
+.categoria-cabecera h3 {
+    margin: 0;
+    color: var(--ink);
+    font-family: 'Cinzel', serif;
+    font-size: clamp(22px, 3vw, 29px);
+    font-weight: 400;
+    letter-spacing: .035em;
+}
+
+.categoria-total {
+    padding-bottom: 3px;
+    color: var(--muted2);
+    font-family: 'Inter', sans-serif;
+    font-size: 8px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+
+/* LISTADO */
+
+.directorio-lista {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 9px;
+}
+
+
+/* FICHAS DESPLEGABLES */
+
+.lugar-ficha {
+    border: 1px solid var(--line-soft);
+    background: linear-gradient(110deg,
+            rgba(9, 18, 38, .52),
+            rgba(9, 18, 38, .2));
+    transition:
+        border-color .25s ease,
+        background .25s ease;
+}
+
+.lugar-ficha:hover,
+.lugar-ficha[open] {
+    border-color: rgba(200, 167, 107, .38);
+    background: linear-gradient(110deg,
+            rgba(20, 27, 48, .72),
+            rgba(9, 18, 38, .34));
+}
+
+
+/* CABECERA CLICABLE */
+
+.lugar-ficha summary {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+        "title toggle"
+        "type toggle";
+    align-items: center;
+    gap: 7px 20px;
+    padding: 21px 24px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.lugar-ficha summary::-webkit-details-marker {
+    display: none;
+}
+
+.ficha-titulo {
+    grid-area: title;
+    color: var(--ink);
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: .035em;
+    line-height: 1.5;
+}
+
+.ficha-tipo {
+    grid-area: type;
+    color: var(--muted2);
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    letter-spacing: .08em;
+    line-height: 1.6;
+}
+
+
+/* BOTÓN + */
+
+.ficha-toggle {
+    grid-area: toggle;
+    display: grid;
+    place-items: center;
+    width: 29px;
+    height: 29px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    color: var(--gold);
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    font-weight: 300;
+    transition:
+        transform .25s ease,
+        background .25s ease;
+}
+
+.lugar-ficha[open] .ficha-toggle {
+    transform: rotate(45deg);
+    background: rgba(200, 167, 107, .07);
+}
+
+
+/* CONTENIDO DESPLEGADO */
+
+.ficha-contenido {
+    padding: 0 72px 25px 24px;
+    animation: directorio-aparece .25s ease both;
+}
+
+.ficha-contenido p {
+    margin: 0 0 16px;
+    color: var(--muted);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    line-height: 1.95;
+    letter-spacing: .005em;
+}
+
+.ficha-contenido p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ENLACES A LAS UNIVERSIDADES */
+
+.ficha-enlace {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 15px;
+    padding: 11px 14px;
+    border: 1px solid var(--line);
+    color: var(--gold-light);
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    letter-spacing: .13em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+        border-color .25s ease,
+        background .25s ease;
+}
+
+.ficha-enlace:hover {
+    border-color: var(--gold);
+    background: rgba(200, 167, 107, .06);
+}
+
+
+/* CIERRE */
+
+.directorio-cierre {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px 25px;
+    margin-top: 85px;
+    padding: 20px 0;
+    border-top: 1px solid var(--line-soft);
+    color: var(--muted2);
+    font-family: 'Inter', sans-serif;
+    font-size: 8px;
+    letter-spacing: .15em;
+}
+
+
+/* ANIMACIÓN */
+
+@keyframes directorio-aparece {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ACCESIBILIDAD */
+
+.lugar-ficha summary:focus-visible {
+    outline: 1px solid var(--gold);
+    outline-offset: 3px;
+}
+
+
+/* ==========================================
+   ADAPTACIÓN A MÓVILES
+=========================================== */
+
+@media (max-width: 650px) {
+
+    .directorio-lunaterra {
+        margin-top: 75px;
+    }
+
+    .directorio-header {
+        margin-bottom: 55px;
+    }
+
+    .directorio-header p {
+        font-size: 10px;
+        letter-spacing: .04em;
+    }
+
+    .directorio-categoria {
+        margin-bottom: 52px;
+    }
+
+    .categoria-cabecera {
+        align-items: end;
+        gap: 10px;
+    }
+
+    .categoria-total {
+        font-size: 7px;
+        letter-spacing: .08em;
+    }
+
+    .lugar-ficha summary {
+        padding: 17px 15px;
+        gap: 6px 12px;
+    }
+
+    .ficha-titulo {
+        font-size: 14px;
+    }
+
+    .ficha-tipo {
+        font-size: 8px;
+        letter-spacing: .035em;
+    }
+
+    .ficha-toggle {
+        width: 26px;
+        height: 26px;
+    }
+
+    .ficha-contenido {
+        padding: 0 17px 20px;
+    }
+
+    .ficha-contenido p {
+        font-size: 12px;
+        line-height: 1.85;
+    }
+
+    .directorio-cierre {
+        flex-direction: column;
+        margin-top: 60px;
+        font-size: 7px;
+    }
+}
+
+
+/* REDUCIR ANIMACIONES SI EL USUARIO LO PREFIERE */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .lugar-ficha,
+    .ficha-toggle {
+        transition: none;
+    }
+
+    .ficha-contenido {
+        animation: none;
+    }
+}
+
+/* ===== DISTRIBUCIÓN GENERAL DEL DIRECTORIO ===== */
+
+.directorio-lunaterra {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 30px 35px;
+    box-sizing: border-box;
+}
+
+/* Distribución en tres columnas */
+.directorio-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.3fr 0.85fr;
+    gap: 24px;
+    align-items: start;
+}
+
+/* Cada columna */
+.directorio-columna {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+}
+
+/* Categorías */
+.directorio-categoria {
+    margin: 0 !important;
+    padding: 0;
+    min-width: 0;
+}
+
+/* Espacio entre fichas */
+.directorio-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 7px !important;
+}
+
+/* Adaptación a pantallas medianas */
+@media (max-width: 1000px) {
+    .directorio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+}
+
+/* Adaptación a móviles */
+@media (max-width: 650px) {
+    .directorio-lunaterra {
+        padding: 20px 14px;
+    }
+
+    .directorio-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .directorio-columna {
+        gap: 18px;
+    }
+}
+
+/* Centrar las imágenes dentro de las fichas desplegables */
+
+.lugar-ficha-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Contenedor de la imagen */
+
+.lugar-imagen {
+    width: 100%;
+    max-width: 100%;
+    margin: 12px auto 18px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Imagen centrada y adaptada a la ficha */
+
+.lugar-imagen img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+    object-position: center;
+}
+
+/* El texto conserva todo el ancho disponible */
+
+.lugar-ficha-contenido p {
+    width: 100%;
+    box-sizing: border-box;
+}
