@@ -43,7 +43,7 @@ window.personaje = {
         "./imagenes/elias21.png",
         "./imagenes/elias22.png",
         "./imagenes/elias23.png",
-        "./imagenes/elias24.png"
+        "./imagenes/elías24.png", 
     ],
     documentos: [
         {

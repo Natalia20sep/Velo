@@ -38,7 +38,8 @@ window.personaje = {
         "./imagenes/garret16.png",
         "./imagenes/garret17.png",
         "./imagenes/garret18.png",
-        "./imagenes/garret19.png"
+        "./imagenes/garret19.png", 
+        "./imagenes/garret20.webp"
     ],
     documentos: [
         {

@@ -28,7 +28,8 @@ window.personaje = {
         "./imagenes/vera6.png",
         "./imagenes/vera7.png",
         "./imagenes/vera8.png",
-        "./imagenes/vera9.png"
+        "./imagenes/vera9.png", 
+        "./imagenes/vera10.webp"
     ],
     documentos: [
         {
