@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         window.location.href =
-            `expediente.html?personaje=${encodeURIComponent(id)}`;
+            `expedientes/expediente.html?personaje=${encodeURIComponent(id)}`;
     }
 
 
