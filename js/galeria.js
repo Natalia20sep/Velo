@@ -85,7 +85,6 @@ const galleryImages = [
   "../imagenes/ships/Syra y Elías (17).png",
   "../imagenes/ships/Syra y Elías (18).png",
   "../imagenes/ships/Syra y Elías (19).png",
-  "../imagenes/ships/Syra y Elías.png",
   "../imagenes/ships/Syra y Elías (10).jpeg",
   "../imagenes/ships/Syra y Elías (11).jpeg",
   "../imagenes/ships/Syra y Elías (12).jpeg",
