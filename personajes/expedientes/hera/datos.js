@@ -1,6 +1,6 @@
 window.personaje = {
     nombre: "Eliana Orsini Rossi",
-    alias: "Hera",
+    alias: "Hera Orsini",
     edad: "27 años",
     altura: "1.78 m",
     estado: "Activa",

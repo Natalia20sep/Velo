@@ -1677,3 +1677,282 @@ body.archive-viewer-open {
     }
 
 }
+
+/* Resumen editorial y estado de búsqueda del catálogo */
+.archive-record-info p {
+    font-size: 10px;
+    line-height: 1.65;
+}
+
+.archive-document-summary {
+    margin: 0 0 20px;
+    color: var(--muted);
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.archive-empty {
+    padding: 28px 20px;
+    border: 1px solid rgba(255,255,255,.12);
+    color: var(--muted);
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+}
+
+.archive-empty[hidden] { display: none; }
+.archive-image[role="button"] { cursor: zoom-in; }
+.archive-image[role="button"]:focus-visible { outline: 2px solid var(--violet-light); outline-offset: 4px; }
+
+
+/* Acción de consulta, compacta y clara */
+.archive-record .open-record {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 32px;
+    padding: 6px 9px;
+    border: 1px solid rgba(216,184,106,.32);
+    border-radius: 2px;
+    background: rgba(216,184,106,.035);
+    color: var(--gold-light);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    line-height: 1;
+    text-transform: uppercase;
+    transition: background .18s ease, border-color .18s ease, color .18s ease;
+}
+
+.archive-record .open-record::after { content: none; }
+
+.archive-record .open-record span {
+    color: var(--gold-light);
+    font-size: 13px;
+    transition: transform .18s ease;
+}
+
+.archive-record .open-record:hover {
+    border-color: rgba(216,184,106,.58);
+    background: rgba(216,184,106,.10);
+    color: #fff2c7;
+}
+
+.archive-record .open-record:hover span { transform: translateX(2px); }
+
+.archive-record .open-record:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+    .archive-record .open-record {
+        min-height: 40px;
+        justify-content: space-between;
+        padding-inline: 12px;
+        font-size: 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .archive-record .open-record,
+    .archive-record .open-record span { transition: none; }
+}
+
+
+.archive-analyst-hypothesis {
+    margin: 0 0 22px;
+    padding: 12px 15px;
+    border-left: 2px solid rgba(216,184,106,.48);
+    background: rgba(216,184,106,.035);
+}
+
+.archive-analyst-hypothesis[hidden] { display: none !important; }
+
+.archive-analyst-hypothesis h3 {
+    margin: 0 0 6px;
+    color: var(--gold-light);
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.archive-analyst-hypothesis p {
+    margin: 0;
+    color: var(--muted);
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+.archive-record-analysis {
+    margin: 0 0 24px;
+}
+
+.archive-record-analysis[hidden],
+.archive-analysis-section[hidden] { display: none !important; }
+
+.archive-analysis-section {
+    margin: 0 0 18px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,.09);
+}
+
+.archive-analysis-section h3 {
+    margin: 0 0 8px;
+    color: var(--gold-light);
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.archive-analysis-section p,
+.archive-analysis-section li {
+    color: var(--muted);
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.archive-analysis-section ul {
+    display: grid;
+    gap: 6px;
+    margin: 0;
+    padding-left: 18px;
+}
+
+.archive-related-link {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    padding: 8px 0;
+    border: 0;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    background: transparent;
+    color: var(--gold-light);
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+}
+
+.archive-related-link:hover span { text-decoration: underline; text-underline-offset: 3px; }
+.archive-related-link small { color: var(--muted); font-size: 11px; line-height: 1.5; }
+.archive-related-link:focus-visible { outline: 1px solid var(--gold-light); outline-offset: 2px; }
+
+
+.archive-character-link {
+    display: inline-block;
+    margin: 2px 14px 2px 0;
+    color: var(--gold-light);
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    line-height: 1.7;
+    text-decoration: underline;
+    text-decoration-color: rgba(216,184,106,.38);
+    text-underline-offset: 3px;
+}
+
+.archive-character-link:hover {
+    color: #fff2c7;
+    text-decoration-color: currentColor;
+}
+
+.archive-character-link:focus-visible {
+    outline: 1px solid var(--gold-light);
+    outline-offset: 3px;
+}
+
+.archive-analysis-section h4 {
+    margin: 10px 0 5px;
+    color: var(--muted);
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+
+/* Lectura de expediente: tipografía y cabecera editorial */
+.archive-record-info p {
+    font-size: 12px;
+    line-height: 1.75;
+}
+
+.archive-document-classification span {
+    font-size: 9px;
+}
+
+.archive-document-content > h2 {
+    margin-bottom: 2px;
+    font-size: clamp(32px, 4vw, 42px);
+    line-height: 1.12;
+    letter-spacing: .02em;
+    text-wrap: balance;
+}
+
+.archive-document-summary {
+    max-width: 72ch;
+    margin: 0 0 26px;
+    padding: 2px 0 19px 16px;
+    border-left: 2px solid rgba(216,184,106,.48);
+    border-bottom: 1px solid rgba(216,184,106,.16);
+    color: #d2c9b7;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.archive-description-section {
+    padding-top: 0;
+    border-top: 0;
+    margin-bottom: 8px;
+}
+
+.archive-description-section .archive-document-summary {
+    font-size: 16px;
+}
+
+.archive-analysis-section h3 {
+    font-size: 12px;
+}
+
+.archive-analysis-section p,
+.archive-analysis-section li,
+.archive-document-text p {
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.archive-analysis-section ul {
+    gap: 9px;
+}
+
+@media (max-width: 600px) {
+    .archive-document-content > h2 {
+        font-size: 29px;
+    }
+
+    .archive-document-summary {
+        padding-left: 12px;
+        font-size: 14px;
+    }
+
+    .archive-description-section .archive-document-summary {
+        font-size: 14px;
+    }
+
+    .archive-analysis-section p,
+    .archive-analysis-section li,
+    .archive-document-text p {
+        font-size: 14px;
+    }
+}

@@ -3,7 +3,7 @@ VELO · GALERÍA
 ========================================================= */
 
 /* CABECERA */
-main {
+main.gallery-page {
     width: min(1500px, 90%);
     margin: 0 auto;
 }
