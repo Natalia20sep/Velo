@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Archivo Central | VELO</title>
+    <link rel="icon" type="image/png" href="../favicon.png" />
     <link rel="stylesheet" href="../estilos.css" />
   </head>
 
@@ -92,7 +93,11 @@
           <div class="archive-classification-head">
             <span>CLASIFICACIÓN</span>
           </div>
-          <div class="archive-filters" role="group" aria-label="Filtrar archivos por tipo">
+          <div
+            class="archive-filters"
+            role="group"
+            aria-label="Filtrar archivos por tipo"
+          >
             <button
               type="button"
               class="archive-filter active"
@@ -101,19 +106,44 @@
             >
               Todos
             </button>
-            <button type="button" class="archive-filter" data-filter="informe" aria-pressed="false">
+            <button
+              type="button"
+              class="archive-filter"
+              data-filter="informe"
+              aria-pressed="false"
+            >
               Informes
             </button>
-            <button type="button" class="archive-filter" data-filter="autopsia" aria-pressed="false">
+            <button
+              type="button"
+              class="archive-filter"
+              data-filter="autopsia"
+              aria-pressed="false"
+            >
               Autopsias
             </button>
-            <button type="button" class="archive-filter" data-filter="reporte" aria-pressed="false">
+            <button
+              type="button"
+              class="archive-filter"
+              data-filter="reporte"
+              aria-pressed="false"
+            >
               Reportes
             </button>
-            <button type="button" class="archive-filter" data-filter="texto" aria-pressed="false">
+            <button
+              type="button"
+              class="archive-filter"
+              data-filter="texto"
+              aria-pressed="false"
+            >
               Textos
             </button>
-            <button type="button" class="archive-filter" data-filter="carta" aria-pressed="false">
+            <button
+              type="button"
+              class="archive-filter"
+              data-filter="carta"
+              aria-pressed="false"
+            >
               Cartas
             </button>
             <button
@@ -124,13 +154,28 @@
             >
               Invitaciones
             </button>
-            <button type="button" class="archive-filter" data-filter="objeto" aria-pressed="false">
+            <button
+              type="button"
+              class="archive-filter"
+              data-filter="objeto"
+              aria-pressed="false"
+            >
               Objetos
             </button>
-            <button type="button" class="archive-filter" data-filter="mapa" aria-pressed="false">
+            <button
+              type="button"
+              class="archive-filter"
+              data-filter="mapa"
+              aria-pressed="false"
+            >
               Mapas
             </button>
-            <button type="button" class="archive-filter" data-filter="casa" aria-pressed="false">
+            <button
+              type="button"
+              class="archive-filter"
+              data-filter="casa"
+              aria-pressed="false"
+            >
               Casas
             </button>
             <button
@@ -141,7 +186,12 @@
             >
               Instalaciones
             </button>
-            <button type="button" class="archive-filter" data-filter="enemigo" aria-pressed="false">
+            <button
+              type="button"
+              class="archive-filter"
+              data-filter="enemigo"
+              aria-pressed="false"
+            >
               Enemigos
             </button>
           </div>
@@ -203,20 +253,40 @@
           </div>
 
           <h2 id="archiveModalTitle">Expediente</h2>
-          <section class="archive-record-analysis" id="archiveModalAnalysis" hidden>
-            <div class="archive-analysis-section archive-description-section" id="archiveModalDescriptionSection" hidden>
+          <section
+            class="archive-record-analysis"
+            id="archiveModalAnalysis"
+            hidden
+          >
+            <div
+              class="archive-analysis-section archive-description-section"
+              id="archiveModalDescriptionSection"
+              hidden
+            >
               <h3>Descripción</h3>
               <p class="archive-document-summary" id="archiveModalSummary"></p>
             </div>
-            <div class="archive-analysis-section" id="archiveModalFindingsSection" hidden>
+            <div
+              class="archive-analysis-section"
+              id="archiveModalFindingsSection"
+              hidden
+            >
               <h3>Hallazgos</h3>
               <ul id="archiveModalFindings"></ul>
             </div>
-            <div class="archive-analysis-section" id="archiveModalHypothesisSection" hidden>
+            <div
+              class="archive-analysis-section"
+              id="archiveModalHypothesisSection"
+              hidden
+            >
               <h3>Hipótesis</h3>
               <p id="archiveModalHypothesisText"></p>
             </div>
-            <div class="archive-analysis-section" id="archiveModalRelatedSection" hidden>
+            <div
+              class="archive-analysis-section"
+              id="archiveModalRelatedSection"
+              hidden
+            >
               <h3>Vínculos</h3>
               <div id="archiveModalRelated"></div>
               <div id="archiveModalCharacters"></div>
