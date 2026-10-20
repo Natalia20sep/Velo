@@ -87,12 +87,13 @@
             />
           </label>
           <button class="relations-reset" id="reset-filters" type="button">
-            Limpiar búsqueda
+            Restablecer
           </button>
         </div>
 
         <div class="relations-control-row">
-          <nav class="relations-views" role="tablist" aria-label="Explorar por">
+          <span class="relations-views-label">Explorar por</span>
+          <div class="relations-views" role="tablist" aria-label="Explorar por">
             <button
               class="relations-view is-active"
               id="view-graph"
@@ -123,9 +124,9 @@
             >
               Vínculos
             </button>
-          </nav>
+          </div>
           <details class="relations-filters">
-            <summary>Filtrar <span aria-hidden="true">＋</span></summary>
+            <summary>Filtrar <span class="active-filter-count" id="active-filter-count">0</span><span aria-hidden="true">＋</span></summary>
             <div class="relations-filter-options">
               <label
                 >Tipo de vínculo
@@ -147,6 +148,8 @@
                   <option value="desarrollo">En desarrollo</option>
                   <option value="incompleto">Incompleto</option>
                   <option value="superado">Superado</option>
+                  <option value="actual">Actual</option>
+                  <option value="mixto">Estado mixto</option>
                 </select>
               </label>
               <label class="relations-check"
@@ -155,11 +158,11 @@
               >
             </div>
           </details>
-          <span
-            class="relations-result-count"
-            id="result-count"
-            aria-live="polite"
-          ></span>
+        </div>
+        <div class="relations-feedback" aria-live="polite">
+          <span class="relations-result-count" id="result-count"></span>
+          <span class="relations-selection-status" id="selection-status" hidden></span>
+          <button class="clear-selection" id="clear-selection" type="button" hidden>Quitar selección</button>
         </div>
 
         <div class="relations-layout">
@@ -201,6 +204,9 @@
                   role="img"
                   aria-label="Mapa de personajes y vínculos"
                 ></svg>
+                <p class="graph-empty" id="graph-empty" hidden>
+                  No hay conexiones que coincidan. Prueba a cambiar la búsqueda o los filtros.
+                </p>
               </div>
               <div class="relations-legend" aria-label="Leyenda de categorías">
                 <span data-category="Familia">Familia</span
@@ -248,6 +254,8 @@
           <aside
             class="relations-detail"
             id="relations-detail"
+            role="dialog"
+            aria-label="Detalle del personaje o vínculo seleccionado"
             aria-live="polite"
           >
             <div class="detail-empty" id="detail-empty">

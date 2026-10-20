@@ -21,7 +21,7 @@ window.VELO_RELATIONS_DATA = (() => {
     ["zarek", "Zarek Vael", "", "bastion"]
   ].map(([id, name, alias, affiliation, life = "desconocido"]) => ({
     id, name, alias, affiliation, life,
-    portrait: `../../imagenes/foto_perfil/foto_perfil_${id === "nyx" ? "nhara" : id}.png`,
+    portrait: `../../imagenes/foto_perfil/foto_perfil_${id === "nyx" ? "nhara" : id === "eiden" ? "eliden" : id}.png`,
     dossier: `../expedientes/expediente.html?personaje=${id}`
   }));
 
@@ -82,7 +82,6 @@ window.VELO_RELATIONS_DATA = (() => {
   add("elias", "garret", ["Personal", "Profesional"], "Confianza y referencia personal", "Se llevan muy bien. Garret considera a Elías una figura de referencia y confía en él. No consta que Elías sea una figura paterna para Garret.");
   add("elias", "zarek", "Personal", "Amistad y confidencia", "Son buenos amigos y confidentes.");
   add("elias", "kael", ["Personal", "Profesional"], "Figura paterna y mentor", "Elías es mentor de Kael y una figura paterna para él.");
-  add("elias", "bella", ["Personal", "Familia"], "Figura paterna", "Elías es una figura paterna para Bella.");
   add("elias", "syra", "Personal", "Vínculo en desarrollo con dimensión romántica", "Existe una cercanía emocional creciente. Ninguno ha expresado abiertamente lo que siente y no mantienen una relación formal.", "desarrollo", { reciprocity: "sentimientos-no-expresados-por-ambos" });
   add("elias", "lysara", ["Profesional", "Personal"], "Colaboración, amistad y tensión romántica pasada", "Han trabajado juntos durante años y se entienden bien. Existió cierta tensión romántica, pero nunca fueron pareja; esa tensión está superada.", "superado");
   add("elias", "simone", ["Profesional", "Personal"], "Buena relación profesional y personal", "Llevan años trabajando juntos y mantienen una buena relación y entendimiento mutuo.");
@@ -116,12 +115,7 @@ window.VELO_RELATIONS_DATA = (() => {
   add("riccardo", "elias", "Profesional", "Jefe y admiración profesional", "Elías es actualmente su jefe durante su estancia en Lunaterra. Riccardo siente admiración por él.");
   add("selene", "syra", "Personal", "Amistad íntima", "Fueron mejores amigas. La muerte de Selene afectó profundamente a Syra.", "historico");
   add("selene", "vera", "Personal", "Amistad", "Eran amigas; no consta una cercanía especial más allá de esa amistad.", "historico");
-  add("selene", "conchi", "Personal", "Buena relación personal", "Se llevaban bien y Selene ayudaba a reforzar la autoestima de Conchi, aunque no eran especialmente cercanas.", "historico");
-  add("selene", "amara", "Estratégica", "Intercambio de información", "Intercambiaron información mediante una colaboración puntual y un trato; no consta amistad.", "historico");
-  add("simone", "erys", "Profesional", "Superior y sucesora", "Simone es superior de Erys y Erys su sucesora. Se llevan bien; el vínculo es principalmente profesional.");
   add("soben", "adramalick", "Conflicto", "Asesinato, fusión de almas y uso del cuerpo como recipiente", "Adramalick asesinó a Soben. Posteriormente, sus almas se fusionaron y Adramalick utilizó el cuerpo de Soben como recipiente. Se desconocen las circunstancias exactas y cuándo ocurrió la fusión.", "historico", { events: ["asesinato-soben-fusion"] });
-  add("sylas", "erys", "Personal", "Amistad cercana", "Son amigos cercanos.");
-  add("syra", "hera", "Personal", "Amistad", "Syra y Eliana Orsini Rossi (Hera Orsini) son amigas.");
   add("syra", "vera", ["Familia", "Personal"], "Cuñadas y relación personal", "Vera es cuñada de Syra por su vínculo con Kael. También mantienen una relación personal.");
 
   const events = [

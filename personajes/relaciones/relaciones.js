@@ -7,12 +7,18 @@
   const people = new Map(data.people.map((person) => [person.id, person]));
   const svg = document.getElementById("relations-graph");
   const graphCanvas = document.getElementById("graph-canvas");
+  const detailPanel = document.getElementById("relations-detail");
   const detailEmpty = document.getElementById("detail-empty");
   const detailContent = document.getElementById("detail-content");
   const searchInput = document.getElementById("relations-search");
   const categoryFilter = document.getElementById("filter-category");
   const stateFilter = document.getElementById("filter-state");
   const deceasedFilter = document.getElementById("filter-deceased");
+  const filterDetails = document.querySelector(".relations-filters");
+  const activeFilterCount = document.getElementById("active-filter-count");
+  const selectionStatus = document.getElementById("selection-status");
+  const clearSelectionButton = document.getElementById("clear-selection");
+  const graphEmpty = document.getElementById("graph-empty");
   const ns = "http://www.w3.org/2000/svg";
   const categoryColors = {
     Familia: "#caa96e", Personal: "#a998d6", Profesional: "#8bb1c4",
@@ -21,7 +27,7 @@
   const stateLabels = {
     "sin-cierre": "Sin cierre registrado", historico: "Vínculo histórico",
     desarrollo: "En desarrollo", incompleto: "Incompleto", superado: "Superado",
-    mixto: "Información de estado mixta"
+    actual: "Vínculo actual", mixto: "Información de estado mixta"
   };
   let currentView = "graph";
   let selectedPerson = null;
@@ -82,7 +88,7 @@
     list.forEach((person, index) => {
       const angle = index * 2.399963 + .2;
       const radius = 70 + Math.sqrt(index / list.length) * 260;
-      pos.set(person.id, { x: center.x + Math.cos(angle) * radius, y: center.y + Math.sin(angle) * radius, fx: 0, fy: 0 });
+      pos.set(person.id, { personId: person.id, x: center.x + Math.cos(angle) * radius, y: center.y + Math.sin(angle) * radius, fx: 0, fy: 0 });
     });
 
     for (let iteration = 0; iteration < 320; iteration += 1) {
@@ -94,7 +100,9 @@
           let dx = a.x - b.x; let dy = a.y - b.y;
           const distanceSquared = Math.max(dx * dx + dy * dy, 30);
           const distance = Math.sqrt(distanceSquared);
-          const force = Math.min(2.3, 4200 / distanceSquared);
+          const labelClearance = 116 + Math.min(42, Math.max(0, Math.max(people.get(a.personId).name.length, people.get(b.personId).name.length) - 8) * 3.2);
+          const collisionForce = Math.max(0, labelClearance - distance) * .045;
+          const force = Math.min(3.2, 5200 / distanceSquared) + collisionForce;
           dx = (dx / distance) * force; dy = (dy / distance) * force;
           a.fx += dx; a.fy += dy; b.fx -= dx; b.fy -= dy;
         }
@@ -104,7 +112,7 @@
         if (!a || !b) continue;
         const dx = b.x - a.x; const dy = b.y - a.y;
         const distance = Math.max(Math.hypot(dx, dy), 1);
-        const force = Math.max(-1.7, Math.min(1.7, (distance - 168) * .006));
+        const force = Math.max(-1.8, Math.min(1.8, (distance - 190) * .003));
         a.fx += (dx / distance) * force; a.fy += (dy / distance) * force;
         b.fx -= (dx / distance) * force; b.fy -= (dy / distance) * force;
       }
@@ -187,6 +195,8 @@
     selectedRelationship = null;
     detailEmpty.hidden = true;
     detailContent.hidden = false;
+    detailPanel.scrollTop = 0;
+    detailPanel.setAttribute("aria-modal", "true");
     detailContent.replaceChildren();
     const close = node("button", "detail-close", "×");
     close.type = "button"; close.setAttribute("aria-label", "Cerrar detalles"); close.addEventListener("click", clearSelection);
@@ -225,6 +235,8 @@
     selectedRelationship = relationship.id;
     detailEmpty.hidden = true;
     detailContent.hidden = false;
+    detailPanel.scrollTop = 0;
+    detailPanel.setAttribute("aria-modal", "true");
     detailContent.replaceChildren();
     const close = node("button", "detail-close", "×");
     close.type = "button"; close.setAttribute("aria-label", "Cerrar detalles"); close.addEventListener("click", clearSelection);
@@ -232,9 +244,25 @@
     const duo = node("div", "relationship-duo");
     [relationship.a, relationship.b].forEach((id, index) => {
       const person = people.get(id);
-      const button = node("button", "relationship-person", person?.name || id);
-      button.type = "button"; button.addEventListener("click", () => showPerson(id));
-      duo.append(button);
+      const personCard = node("div", "relationship-person-card");
+      const button = node("button", "relationship-person");
+      button.type = "button";
+      if (person) {
+        const portrait = node("img", "detail-related-portrait");
+        portrait.src = person.portrait;
+        portrait.alt = `Retrato de ${person.name}`;
+        portrait.onerror = () => { portrait.hidden = true; };
+        button.append(portrait);
+      }
+      button.append(node("span", "", person?.name || id));
+      button.addEventListener("click", () => showPerson(id));
+      personCard.append(button);
+      if (person) {
+        const profile = node("a", "mini-profile-link", "Ver personaje →");
+        profile.href = person.dossier;
+        personCard.append(profile);
+      }
+      duo.append(personCard);
       if (index === 0) duo.append(node("span", "relationship-connector", "—"));
     });
     detailContent.append(duo);
@@ -270,6 +298,7 @@
     selectedRelationship = null;
     detailContent.hidden = true;
     detailEmpty.hidden = false;
+    detailPanel.removeAttribute("aria-modal");
     renderGraph();
   }
 
@@ -278,6 +307,7 @@
     selectedRelationship = null;
     detailContent.hidden = true;
     detailEmpty.hidden = false;
+    detailPanel.removeAttribute("aria-modal");
     renderGraph();
   }
 
@@ -287,6 +317,7 @@
     selectedRelationship = alreadyFocused ? null : relationship.id;
     detailContent.hidden = true;
     detailEmpty.hidden = false;
+    detailPanel.removeAttribute("aria-modal");
     renderGraph();
   }
 
@@ -327,19 +358,49 @@
     result.relationships.forEach((relationship) => {
       const button = node("button", "link-result"); button.type = "button";
       const names = node("span", "link-result-names", `${personName(relationship.a)}  —  ${personName(relationship.b)}`);
-      const meta = node("span", "link-result-meta", `${relationship.categories.join(" · ")} · ${relationship.type}`);
-      button.append(names, meta, node("span", "link-result-arrow", "↗"));
+      const meta = node("span", "link-result-meta");
+      relationship.categories.forEach((category) => meta.append(node("span", `relation-tag tag-${normalize(category)}`, category)));
+      const type = node("span", "link-result-type", relationship.type);
+      const description = node("span", "link-result-description", relationship.description);
+      button.append(names, meta, type, description, node("span", "link-result-arrow", "↗"));
       button.addEventListener("click", () => showRelationship(relationship));
       container.append(button);
     });
   }
 
+  function updateFeedback(result) {
+    const count = [categoryFilter.value, stateFilter.value, !deceasedFilter.checked].filter(Boolean).length;
+    activeFilterCount.textContent = String(count);
+    filterDetails.classList.toggle("has-active-filters", count > 0);
+
+    const resultCount = document.getElementById("result-count");
+    if (!result.people.length && !result.relationships.length) {
+      resultCount.textContent = result.query ? `Sin resultados para «${searchInput.value.trim()}»` : "No hay resultados con estos filtros";
+    } else {
+      resultCount.textContent = `${result.people.length} ${result.people.length === 1 ? "personaje" : "personajes"} · ${result.relationships.length} ${result.relationships.length === 1 ? "vínculo" : "vínculos"}`;
+    }
+
+    const selectedLink = selectedRelationship ? data.relationships.find((item) => item.id === selectedRelationship) : null;
+    const selection = selectedPerson
+      ? `Conexiones resaltadas: ${personName(selectedPerson)}`
+      : selectedLink
+        ? `Vínculo resaltado: ${personName(selectedLink.a)} — ${personName(selectedLink.b)}`
+        : "";
+    selectionStatus.textContent = selection;
+    selectionStatus.hidden = !selection;
+    clearSelectionButton.hidden = !selection;
+    graphEmpty.hidden = result.people.length > 0 || result.relationships.length > 0;
+  }
+
   function renderGraph() {
     if (!svg) return;
     const result = currentResults();
+    if (selectedPerson && !result.people.some((person) => person.id === selectedPerson)) selectedPerson = null;
+    if (selectedRelationship && !result.relationships.some((relationship) => relationship.id === selectedRelationship)) selectedRelationship = null;
     svg.replaceChildren();
     const edgesGroup = svgNode("g", { class: "graph-edges" });
     const nodesGroup = svgNode("g", { class: "graph-nodes" });
+    const defs = svgNode("defs");
     const visibleIds = new Set(result.people.map((person) => person.id));
     const activeRelationships = result.relationships.filter((relationship) => visibleIds.has(relationship.a) && visibleIds.has(relationship.b));
     const neighborIds = new Set();
@@ -353,12 +414,31 @@
     activeRelationships.forEach((relationship) => {
       const a = positions.get(relationship.a); const b = positions.get(relationship.b);
       if (!a || !b) return;
-      const line = svgNode("line", { x1: a.x, y1: a.y, x2: b.x, y2: b.y, class: "graph-edge", stroke: categoryColors[relationship.categories[0]] || "#9e91b9" });
+      let stroke = categoryColors[relationship.categories[0]] || "#9e91b9";
+      if (relationship.categories.length > 1) {
+        const gradientId = `relation-colors-${relationship.id}`;
+        const gradient = svgNode("linearGradient", {
+          id: gradientId, gradientUnits: "userSpaceOnUse",
+          x1: a.x, y1: a.y, x2: b.x, y2: b.y
+        });
+        const categories = relationship.categories;
+        categories.forEach((category, index) => {
+          const color = categoryColors[category] || "#9e91b9";
+          gradient.append(
+            svgNode("stop", { offset: `${index / categories.length * 100}%`, "stop-color": color }),
+            svgNode("stop", { offset: `${(index + 1) / categories.length * 100}%`, "stop-color": color })
+          );
+        });
+        defs.append(gradient);
+        stroke = `url(#${gradientId})`;
+      }
+      const line = svgNode("line", { x1: a.x, y1: a.y, x2: b.x, y2: b.y, class: "graph-edge", stroke });
+      line.append(svgNode("title", {}, `${relationship.categories.join(" · ")} — ${relationship.type}`));
       const focused = selectedRelationship === relationship.id || (selectedPerson && (relationship.a === selectedPerson || relationship.b === selectedPerson));
-      line.setAttribute("opacity", selectedRelationship || selectedPerson ? (focused ? ".92" : ".08") : ".24");
-      line.setAttribute("stroke-width", focused ? "2.4" : "1.15");
+      line.setAttribute("opacity", selectedRelationship || selectedPerson ? (focused ? "1" : ".035") : ".32");
+      line.setAttribute("stroke-width", focused ? "3.2" : "1.25");
       line.setAttribute("tabindex", "0"); line.setAttribute("role", "button");
-      line.setAttribute("aria-label", `${personName(relationship.a)} y ${personName(relationship.b)}: ${relationship.type}`);
+      line.setAttribute("aria-label", `${personName(relationship.a)} y ${personName(relationship.b)}: ${relationship.categories.join(", ")}. ${relationship.type}`);
       line.addEventListener("click", () => focusRelationshipOnGraph(relationship));
       line.addEventListener("keydown", (event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); focusRelationshipOnGraph(relationship); } });
       edgesGroup.append(line);
@@ -393,9 +473,9 @@
 
     const world = svgNode("g", { class: "graph-world" });
     world.append(edgesGroup, nodesGroup);
-    svg.append(world);
+    svg.append(defs, world);
     applyZoom();
-    document.getElementById("result-count").textContent = `${result.people.length} personajes · ${result.relationships.length} vínculos`;
+    updateFeedback(result);
     renderPeople(result);
     renderLinks(result);
   }
@@ -406,6 +486,27 @@
     const x = 600 - width / 2 - panX;
     const y = 380 - height / 2 - panY;
     svg?.setAttribute("viewBox", `${x} ${y} ${width} ${height}`);
+  }
+
+  function fitGraph() {
+    const visiblePeople = currentResults().people;
+    const points = visiblePeople.map((person) => positions.get(person.id)).filter(Boolean);
+    if (!points.length) {
+      zoom = 1;
+      panX = 0;
+      panY = 0;
+      applyZoom();
+      return;
+    }
+    const xs = points.map((point) => point.x);
+    const ys = points.map((point) => point.y);
+    const padding = 100;
+    const width = Math.max(200, Math.max(...xs) - Math.min(...xs) + padding * 2);
+    const height = Math.max(180, Math.max(...ys) - Math.min(...ys) + padding * 2);
+    zoom = Math.max(.65, Math.min(2.2, Math.min(1200 / width, 760 / height)));
+    panX = 600 - (Math.min(...xs) + Math.max(...xs)) / 2;
+    panY = 380 - (Math.min(...ys) + Math.max(...ys)) / 2;
+    applyZoom();
   }
 
   function setView(view) {
@@ -429,21 +530,22 @@
     stateFilter.value = "";
     deceasedFilter.checked = true;
     zoom = 1; panX = 0; panY = 0;
+    if (filterDetails) filterDetails.open = false;
     clearSelection();
-    setView("graph");
   }
 
   function bindControls() {
     document.querySelectorAll(".relations-view").forEach((button) => button.addEventListener("click", () => setView(button.dataset.view)));
-    searchInput.addEventListener("input", () => {
-      if (searchInput.value.trim()) setView("people");
-      else renderGraph();
-    });
+    searchInput.addEventListener("input", renderGraph);
     [categoryFilter, stateFilter, deceasedFilter].forEach((control) => control.addEventListener("change", renderGraph));
     document.getElementById("reset-filters").addEventListener("click", reset);
+    clearSelectionButton.addEventListener("click", clearSelection);
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !detailContent.hidden) clearSelection();
+    });
     document.getElementById("zoom-in").addEventListener("click", () => { zoom = Math.min(2.2, zoom * 1.2); applyZoom(); });
     document.getElementById("zoom-out").addEventListener("click", () => { zoom = Math.max(.65, zoom / 1.2); applyZoom(); });
-    document.getElementById("zoom-fit").addEventListener("click", () => { zoom = 1; panX = 0; panY = 0; applyZoom(); });
+    document.getElementById("zoom-fit").addEventListener("click", fitGraph);
     svg.addEventListener("wheel", (event) => {
       event.preventDefault(); zoom = Math.max(.65, Math.min(2.2, zoom * (event.deltaY < 0 ? 1.08 : .92))); applyZoom();
     }, { passive: false });
