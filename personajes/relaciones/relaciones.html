@@ -6,6 +6,7 @@
     <title>Relaciones | VELO</title>
     <link rel="icon" type="image/png" href="../../favicon.png" />
     <link rel="stylesheet" href="../../estilos.css" />
+    <link rel="stylesheet" href="../../css/relaciones.css" />
   </head>
   <body>
     <nav>
@@ -54,17 +55,219 @@
         </div>
       </div>
     </nav>
-    <main class="mundo-content">
-      <header class="mundo-hero">
-        <div class="mundo-kicker">Personajes</div>
-        <h1>Relaciones</h1>
-        <p class="mundo-subtitle">
-          Esta sección está reservada para el registro de relaciones.
-        </p>
+    <main class="relations-page">
+      <header class="relations-header">
+        <div class="relations-intro-copy">
+          <span class="relations-kicker">Personajes · Lunaterra</span>
+          <h1>Relaciones</h1>
+          <p>
+            Familia, lealtades, alianzas y conflictos: explora los vínculos que
+            conectan sus historias.
+          </p>
+        </div>
+        <div class="relations-stats" aria-label="Resumen del registro">
+          <span><strong id="stat-people">—</strong> personas</span>
+          <span><strong id="stat-links">—</strong> vínculos</span>
+          <span><strong id="stat-events">—</strong> sucesos</span>
+        </div>
       </header>
+
+      <section
+        class="relations-workspace"
+        aria-label="Explorador de relaciones"
+      >
+        <div class="relations-search-row">
+          <label class="relations-search">
+            <span class="sr-only">Buscar </span>
+            <span aria-hidden="true">⌕</span>
+            <input
+              id="relations-search"
+              type="search"
+              placeholder="Busca un personaje o un vínculo…"
+              autocomplete="off"
+            />
+          </label>
+          <button class="relations-reset" id="reset-filters" type="button">
+            Limpiar búsqueda
+          </button>
+        </div>
+
+        <div class="relations-control-row">
+          <nav class="relations-views" role="tablist" aria-label="Explorar por">
+            <button
+              class="relations-view is-active"
+              id="view-graph"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              data-view="graph"
+            >
+              Red
+            </button>
+            <button
+              class="relations-view"
+              id="view-people"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-view="people"
+            >
+              Personajes
+            </button>
+            <button
+              class="relations-view"
+              id="view-links"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-view="links"
+            >
+              Vínculos
+            </button>
+          </nav>
+          <details class="relations-filters">
+            <summary>Filtrar <span aria-hidden="true">＋</span></summary>
+            <div class="relations-filter-options">
+              <label
+                >Tipo de vínculo
+                <select id="filter-category">
+                  <option value="">Todas las categorías</option>
+                  <option>Familia</option>
+                  <option>Personal</option>
+                  <option>Profesional</option>
+                  <option>Estratégica</option>
+                  <option>Conflicto</option>
+                </select>
+              </label>
+              <label
+                >Estado
+                <select id="filter-state">
+                  <option value="">Cualquier estado</option>
+                  <option value="sin-cierre">Sin cierre registrado</option>
+                  <option value="historico">Histórico</option>
+                  <option value="desarrollo">En desarrollo</option>
+                  <option value="incompleto">Incompleto</option>
+                  <option value="superado">Superado</option>
+                </select>
+              </label>
+              <label class="relations-check"
+                ><input id="filter-deceased" type="checkbox" checked /> Incluir
+                personas fallecidas</label
+              >
+            </div>
+          </details>
+          <span
+            class="relations-result-count"
+            id="result-count"
+            aria-live="polite"
+          ></span>
+        </div>
+
+        <div class="relations-layout">
+          <section class="relations-explorer" aria-label="Resultados">
+            <div
+              class="relations-view-panel is-visible"
+              id="panel-graph"
+              role="tabpanel"
+              aria-labelledby="view-graph"
+            >
+              <div class="graph-heading">
+                <div>
+                  <span>MAPA DE VÍNCULOS</span>
+                  <p>Selecciona un personaje para seguir sus conexiones.</p>
+                </div>
+                <div class="graph-controls" aria-label="Controles del mapa">
+                  <button type="button" id="zoom-out" aria-label="Alejar">
+                    −</button
+                  ><button type="button" id="zoom-in" aria-label="Acercar">
+                    +</button
+                  ><button
+                    type="button"
+                    id="zoom-fit"
+                    aria-label="Ajustar mapa"
+                  >
+                    Ajustar
+                  </button>
+                </div>
+              </div>
+              <div
+                class="graph-canvas"
+                id="graph-canvas"
+                tabindex="0"
+                aria-label="Red interactiva de personajes"
+              >
+                <svg
+                  id="relations-graph"
+                  viewBox="0 0 1200 760"
+                  role="img"
+                  aria-label="Mapa de personajes y vínculos"
+                ></svg>
+              </div>
+              <div class="relations-legend" aria-label="Leyenda de categorías">
+                <span data-category="Familia">Familia</span
+                ><span data-category="Personal">Personal</span
+                ><span data-category="Profesional">Profesional</span
+                ><span data-category="Estratégica">Estratégica</span
+                ><span data-category="Conflicto">Conflicto</span>
+              </div>
+              <p class="graph-hint">
+                En pantallas táctiles, arrastra para desplazarte y usa los
+                controles para acercar o alejar.
+              </p>
+            </div>
+            <div
+              class="relations-view-panel"
+              id="panel-people"
+              role="tabpanel"
+              aria-labelledby="view-people"
+              hidden
+            >
+              <div class="directory-heading">
+                <h2>Personajes</h2>
+                <p>Abre un nombre para consultar sus vínculos.</p>
+              </div>
+              <div class="people-results" id="people-results"></div>
+            </div>
+            <div
+              class="relations-view-panel"
+              id="panel-links"
+              role="tabpanel"
+              aria-labelledby="view-links"
+              hidden
+            >
+              <div class="directory-heading">
+                <h2>Vínculos</h2>
+                <p>
+                  Cada pareja aparece una sola vez; sus distintos tipos se
+                  reúnen en una misma entrada.
+                </p>
+              </div>
+              <div class="link-results" id="link-results"></div>
+            </div>
+          </section>
+
+          <aside
+            class="relations-detail"
+            id="relations-detail"
+            aria-live="polite"
+          >
+            <div class="detail-empty" id="detail-empty">
+              <span class="detail-mark" aria-hidden="true">✦</span>
+              <h2>Elige un nombre</h2>
+              <p>
+                Selecciona a alguien en la red o en la lista para consultar sus
+                vínculos y los acontecimientos asociados.
+              </p>
+            </div>
+            <div id="detail-content" hidden></div>
+          </aside>
+        </div>
+      </section>
     </main>
     <footer>VELO · LUNATERRA · ARCHIVO RESERVADO</footer>
     <script src="../../js/core.js"></script>
     <script src="../../js/efectos.js"></script>
+    <script src="datos.js"></script>
+    <script src="relaciones.js"></script>
   </body>
 </html>
