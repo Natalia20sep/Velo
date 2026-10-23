@@ -13,6 +13,7 @@ VELO · PRESENTACIÓN
     padding: 40px 0;
 }
 
+.presentation-video { width: 100%; margin: 0; }
 .presentation video {
     display: block;
     width: 100%;
@@ -20,6 +21,13 @@ VELO · PRESENTACIÓN
     background: #000;
     border: 1px solid var(--line);
     box-shadow: 0 25px 80px rgba(0, 0, 0, .45);
+}
+.presentation-video figcaption {
+    margin-top: 12px;
+    color: var(--muted2);
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-align: center;
 }
 
 /* TÍTULO */

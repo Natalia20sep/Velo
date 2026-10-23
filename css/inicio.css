@@ -789,6 +789,60 @@
 
 }
 
+/* =====================================================
+   VELO · UMBRAL NARRATIVO
+   Entrada de la portada: una constelación antes del archivo.
+   ===================================================== */
+.hero { min-height: 100svh; background: radial-gradient(ellipse at 50% 62%, rgba(91, 71, 149, .2), transparent 37%), radial-gradient(ellipse at 15% 20%, rgba(45, 81, 139, .16), transparent 30%), #050710; }
+.hero-content { width: min(880px, 90vw); padding: 130px 0 80px; }
+.hero-signal { margin-bottom: 22px !important; color: var(--violet-light) !important; font: 400 10px/1.5 "Cinzel", serif; letter-spacing: .22em; text-transform: uppercase; }
+.hero-lede { max-width: 670px !important; font-size: clamp(15px, 1.6vw, 18px); line-height: 1.9; }
+.hero-lede a, .threshold-copy a { color: var(--gold-light); border-bottom: 1px solid rgba(216, 184, 106, .5); transition: color .25s ease, text-shadow .25s ease; }
+.hero-lede a:hover, .threshold-copy a:hover { color: #fff3c9; text-shadow: 0 0 16px rgba(216, 184, 106, .55); }
+.hero-descent { display: inline-flex; gap: 14px; align-items: center; margin-top: 48px; color: var(--gold-light); font-size: 10px; letter-spacing: .22em; text-transform: uppercase; animation: fadeUp 1s .65s var(--ease) both, scrollFloat 2.8s ease-in-out 1.7s infinite; }
+.hero-descent span { font-size: 18px; }
+.hero-constellation { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.hero-orbit { position: absolute; border: 1px solid rgba(184, 156, 255, .13); border-radius: 50%; transform: translate(-50%, -50%); }
+.orbit-one { top: 51%; left: 50%; width: min(88vw, 920px); aspect-ratio: 1; animation: orbit 36s linear infinite; }
+.orbit-two { top: 51%; left: 50%; width: min(66vw, 620px); aspect-ratio: 1; border-color: rgba(216, 184, 106, .12); animation: orbit 23s linear infinite reverse; }
+.hero-star { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #f9e7a9; box-shadow: 0 0 10px 3px rgba(233, 207, 129, .35); animation: starTwinkle 4s ease-in-out infinite; }
+.star-one { top: 22%; left: 17%; }.star-two { top: 71%; right: 16%; animation-delay: -1.4s; }.star-three { top: 29%; right: 21%; width: 3px; height: 3px; animation-delay: -2.6s; }
+.threshold { display: grid; grid-template-columns: minmax(250px, .9fr) minmax(300px, 1.1fr); gap: clamp(38px, 8vw, 120px); align-items: center; width: min(1240px, 100%); padding: clamp(95px, 12vw, 170px) 7vw; margin: auto; }
+.threshold::after { content: none; }
+.threshold-image { position: relative; min-height: 450px; overflow: hidden; border: 1px solid rgba(216, 184, 106, .25); box-shadow: 0 30px 70px rgba(0,0,0,.4), 0 0 50px rgba(119,100,216,.12); }
+.threshold-image::before { content: "LUNATERRA · REGISTRO DE OBSERVACIÓN"; position: absolute; z-index: 1; right: 14px; bottom: 12px; color: var(--gold-light); font-size: 8px; letter-spacing: .15em; }
+.threshold-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(5,7,16,.72)), radial-gradient(circle at 50% 50%, transparent 45%, rgba(87, 53, 133, .18)); pointer-events: none; }
+.threshold-image img { display: block; width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; filter: saturate(.8) brightness(.72); transition: transform 1.2s var(--ease), filter .8s ease; }
+.threshold-image:hover img { transform: scale(1.05); filter: saturate(1) brightness(.86); }
+.threshold-copy { max-width: 620px; }
+.threshold-kicker, .routes-heading span { color: var(--gold); font-size: 10px; letter-spacing: .28em; text-transform: uppercase; }
+.threshold-copy h2 { margin: 20px 0 24px; font-size: clamp(31px, 4.5vw, 57px); }
+.threshold-copy p { color: var(--muted); font-size: 15px; line-height: 2; }
+.constellation-routes { width: min(1400px, 100%); padding: 40px 7vw 110px; margin: auto; }
+.constellation-routes::after { content: none; }
+.routes-heading { max-width: 720px; margin: 0 auto 45px; text-align: center; }.routes-heading h2 { margin-top: 14px; font-size: clamp(31px, 4vw, 55px); }
+.route-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.route-card { position: relative; display: flex; min-height: 290px; padding: 28px; flex-direction: column; justify-content: flex-end; overflow: hidden; border: 1px solid rgba(216, 184, 106, .2); background: radial-gradient(circle at 20% 10%, rgba(119,100,216,.2), transparent 38%), linear-gradient(145deg, rgba(17,24,47,.85), rgba(5,7,16,.95)); transition: transform .35s var(--ease), border-color .35s ease, box-shadow .35s ease; }
+.route-card::before { content: "✦"; position: absolute; top: 27px; left: 28px; color: var(--gold); font-size: 12px; text-shadow: 0 0 15px rgba(216,184,106,.7); }.route-card span { color: var(--gold); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; }.route-card strong { margin: 13px 0 10px; color: var(--ink); font: 400 21px/1.35 "Cinzel", serif; }.route-card small { color: var(--muted); font-size: 12px; line-height: 1.7; }.route-card:hover { transform: translateY(-7px); border-color: rgba(216, 184, 106, .72); box-shadow: 0 20px 45px rgba(0,0,0,.34), 0 0 28px rgba(119,100,216,.13); }.route-people { background: radial-gradient(circle at 80% 20%, rgba(163,86,122,.2), transparent 40%), linear-gradient(145deg, rgba(31,18,41,.85), rgba(5,7,16,.95)); }.route-orders { background: radial-gradient(circle at 50% 0, rgba(69,112,127,.22), transparent 42%), linear-gradient(145deg, rgba(13,29,39,.85), rgba(5,7,16,.95)); }.route-archive { background: radial-gradient(circle at 10% 20%, rgba(126,98,54,.17), transparent 42%), linear-gradient(145deg, rgba(30,26,18,.85), rgba(5,7,16,.95)); }
+@keyframes starTwinkle { 0%, 100% { opacity: .25; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.6); } }
+@media (max-width: 950px) { .route-grid { grid-template-columns: repeat(2, 1fr); }.route-card { min-height: 230px; } }
+@media (max-width: 680px) { .threshold { grid-template-columns: 1fr; padding: 90px 7vw; }.threshold-image { min-height: 330px; }.constellation-routes { padding-bottom: 75px; }.route-grid { grid-template-columns: 1fr; }.route-card { min-height: 205px; }.hero-content { padding-top: 120px; }.hero-signal { font-size: 8px; letter-spacing: .15em; } }
+@media (prefers-reduced-motion: reduce) { .hero-constellation *, .hero-descent { animation: none !important; }.threshold-image img, .route-card { transition: none; } }
+
+.discovery-index { max-width: 900px; padding-top: 80px; }
+.discovery-index .home-index-head { padding-bottom: 26px; }
+.discovery-index .home-index-head::after { width: 180px; }
+.discovery-index .home-index-description { max-width: 520px; }
+.discovery-card { position: relative; display: grid; grid-template-columns: 74px minmax(0, 1fr) auto; gap: 24px; align-items: center; max-width: 850px; margin: 0 auto; padding: clamp(24px, 4vw, 42px); border: 1px solid rgba(200, 167, 107, .24); background: radial-gradient(circle at 0 0, rgba(120,101,185,.18), transparent 46%), linear-gradient(135deg, rgba(14,19,37,.92), rgba(5,7,16,.96)); box-shadow: 0 25px 60px rgba(0,0,0,.24); }
+.discovery-mark { display: grid; place-items: center; width: 66px; height: 66px; border: 1px solid rgba(216,184,106,.48); border-radius: 50%; color: var(--gold-light); font-size: 24px; text-shadow: 0 0 18px rgba(216,184,106,.6); }
+.discovery-code { color: var(--gold); font-size: 9px; letter-spacing: .2em; text-transform: uppercase; }
+.discovery-copy h3 { margin: 10px 0; color: var(--ink); font: 400 clamp(19px, 2.5vw, 27px)/1.35 "Cinzel", serif; }
+.discovery-copy p { max-width: 580px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.discovery-copy a { display: inline-block; margin-top: 18px; color: var(--gold-light); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+.discovery-refresh { padding: 12px 14px; border: 1px solid rgba(216,184,106,.32); background: transparent; color: var(--ink); font: inherit; font-size: 10px; letter-spacing: .08em; cursor: pointer; }
+.discovery-refresh:hover { border-color: var(--gold); color: var(--gold-light); }
+@media (max-width: 680px) { .discovery-card { grid-template-columns: 52px minmax(0,1fr); gap: 16px; }.discovery-mark { width: 48px; height: 48px; font-size: 18px; }.discovery-refresh { grid-column: 2; justify-self: start; } }
+
 
 /* -----------------------------------------------------
    MOVIMIENTO REDUCIDO

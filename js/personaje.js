@@ -348,6 +348,76 @@
         });
     }
 
+    function renderConnections() {
+        const grid = document.getElementById("connectionGrid");
+        const section = document.getElementById("connectionRecords");
+        if (!grid || !section) return;
+
+        const data = getData();
+        const relationData = window.VELO_RELATIONS_DATA || {};
+        const people = relationData.people || {};
+        const links = (relationData.relationships || []).filter((link) =>
+            link.a === personajeId || link.b === personajeId
+        );
+        const records = Array.isArray(window.VELO_ARCHIVE_RECORDS)
+            ? window.VELO_ARCHIVE_RECORDS.filter((record) =>
+                (record.characterRefs || []).some((person) => person.id === personajeId)
+            )
+            : [];
+        const organizationLinks = {
+            "bastión": { label: "Bastión", href: "../../organizaciones/bastion/bastion.html" },
+            "origen": { label: "Origen", href: "../../organizaciones/origen/origen.html" },
+            "soma": { label: "SOMA", href: "../../organizaciones/soma/soma.html" },
+            "reah": { label: "REAH", href: "../../organizaciones/reah/reah.html" }
+        };
+        const affiliation = String(data.afiliacion || "").toLocaleLowerCase("es");
+        const organization = Object.entries(organizationLinks).find(([key]) => affiliation.includes(key))?.[1];
+        const makeCard = (label, title, text) => {
+            const card = document.createElement("article");
+            card.className = "connection-card";
+            const tag = document.createElement("span"); tag.textContent = label;
+            const heading = document.createElement("h3"); heading.textContent = title;
+            const body = document.createElement("p"); body.textContent = text;
+            card.append(tag, heading, body);
+            return card;
+        };
+
+        if (organization) {
+            const card = makeCard("AFILIACIÓN", organization.label, "Consultar registro de la organización vinculada.");
+            const link = document.createElement("a");
+            link.href = organization.href; link.className = "connection-action"; link.textContent = "Abrir organización →";
+            card.append(link); grid.append(card);
+        }
+        if (links.length) {
+            const card = makeCard("VÍNCULOS", "Personas relacionadas", `${links.length} vínculo${links.length === 1 ? "" : "s"} confirmado${links.length === 1 ? "" : "s"} en la red.`);
+            const list = document.createElement("div"); list.className = "connection-links";
+            links.forEach((link) => {
+                const id = link.a === personajeId ? link.b : link.a;
+                const person = people[id];
+                if (!person) return;
+                const anchor = document.createElement("a");
+                anchor.href = `./expediente.html?personaje=${encodeURIComponent(id)}`;
+                anchor.textContent = person.name;
+                anchor.title = link.type || "Vínculo registrado";
+                list.append(anchor);
+            });
+            const all = document.createElement("a"); all.href = "../relaciones/relaciones.html"; all.className = "connection-action"; all.textContent = "Ver red de relaciones →";
+            card.append(list, all); grid.append(card);
+        }
+        if (records.length) {
+            const card = makeCard("ARCHIVO CENTRAL", "Documentos citados", `${records.length} documento${records.length === 1 ? "" : "s"} menciona${records.length === 1 ? "" : "n"} este expediente.`);
+            const list = document.createElement("div"); list.className = "connection-links";
+            records.slice(0, 5).forEach((record) => { const anchor = document.createElement("a"); anchor.href = `../../archivo/archivo.html?q=${encodeURIComponent(record.code)}`; anchor.textContent = `${record.code} · ${record.title}`; list.append(anchor); });
+            const all = document.createElement("a"); all.href = `../../archivo/archivo.html?q=${encodeURIComponent(data.nombre || personajeId)}`; all.className = "connection-action"; all.textContent = "Buscar en el Archivo Central →";
+            card.append(list, all); grid.append(card);
+        }
+        if (!grid.childElementCount) {
+            const card = makeCard("ACCESO PARCIAL", "Rastros aún incompletos", "No constan cruces digitales suficientes. El expediente puede contener información no indexada.");
+            const link = document.createElement("a"); link.href = "../../archivo/archivo.html"; link.className = "connection-action"; link.textContent = "Explorar Archivo Central →";
+            card.append(link); grid.append(card);
+        }
+    }
+
     function openDocument(doc, index) {
         let modal = document.getElementById("documentModal");
 
@@ -454,6 +524,7 @@
 
         set("recordNumber", "expediente", "REGISTRO");
         set("characterName", "nombre", "Registro desconocido");
+        set("characterNameTrail", "nombre", "Registro desconocido");
         set("status", "estado");
 
         const photo = document.getElementById("characterPhoto");
@@ -485,6 +556,7 @@
         renderHistory();
         renderGallery();
         renderDocuments();
+        renderConnections();
         renderAdditionalData();
     }
 

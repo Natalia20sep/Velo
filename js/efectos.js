@@ -2,11 +2,15 @@
    EFECTOS GENERALES · VELO
    ========================================================= */
 document.querySelectorAll("a").forEach(link => {
-    const href = link.getAttribute("href");
-    if (!href || href.startsWith("#") || href.startsWith("http")) {
+    const initialHref = link.getAttribute("href");
+    if (!initialHref || initialHref.startsWith("#") || initialHref.startsWith("http")) {
         return;
     }
     link.addEventListener("click", event => {
+        const href = link.getAttribute("href");
+        if (!href || href.startsWith("#") || href.startsWith("http")) {
+            return;
+        }
         if (
             event.ctrlKey ||
             event.shiftKey ||

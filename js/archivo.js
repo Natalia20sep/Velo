@@ -39,6 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const viewerPrev = document.getElementById("viewerPrev");
   const viewerNext = document.getElementById("viewerNext");
 
+  const initialQuery = new URLSearchParams(window.location.search).get("q");
+  const requestedRecordCode = new URLSearchParams(window.location.search).get("open");
+  if (initialQuery && searchInput) searchInput.value = initialQuery;
   let currentFilter = "all";
   let activeRecord = null;
   let returnFocus = null;
@@ -343,4 +346,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderRecords();
   filterRecords();
+  if (requestedRecordCode) {
+    const requestedRecord = recordsByCode.get(requestedRecordCode);
+    const recordIndex = catalog.indexOf(requestedRecord);
+    const trigger = list?.querySelector(`[data-record-index="${recordIndex}"] .open-record`);
+    if (requestedRecord && trigger) openRecord(requestedRecord, trigger);
+  }
 });

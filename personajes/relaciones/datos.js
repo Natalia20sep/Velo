@@ -2,7 +2,7 @@
 window.VELO_RELATIONS_DATA = (() => {
   const people = [
     ["adramalick", "Adramalick", "", "origen"], ["alara", "Alara", "", "independiente"],
-    ["amara", "Amara", "", "independiente"], ["angel", "Ángel", "", "bastion"],
+    ["amara", "Amara", "", "independiente", "fallecida"], ["angel", "Ángel", "", "bastion"],
     ["aster", "Aster", "", "bastion"], ["bella", "Bella Duvall", "", "bastion"],
     ["conchi", "Conchi", "", "bastion"], ["concho", "Concho", "", "bastion"],
     ["darian", "Darian", "", "independiente"], ["eiden", "Eiden", "", "bastion"],
@@ -46,7 +46,7 @@ window.VELO_RELATIONS_DATA = (() => {
   };
 
   // Familia, matrimonio y familia elegida.
-  add("alara", "amara", "Familia", "Hermanas", "Son hermanas.");
+  add("alara", "amara", "Familia", "Hermanas", "Son hermanas.", "historico", { events: ["muerte-amara"] });
   add("bella", "garret", ["Personal", "Familia"], "Familia elegida", "Mantienen un vínculo afectivo muy fuerte y se consideran familia, prácticamente hermanos. No existe adopción legal ni vínculo sanguíneo.");
   add("conchi", "concho", "Familia", "Matrimonio", "Son marido y mujer.");
   add("elara", "zarek", ["Familia", "Profesional"], "Matrimonio y compañeros de investigación", "Son marido y mujer y trabajaron juntos en el Proyecto Edén.");
@@ -119,6 +119,7 @@ window.VELO_RELATIONS_DATA = (() => {
   add("syra", "vera", ["Familia", "Personal"], "Cuñadas y relación personal", "Vera es cuñada de Syra por su vínculo con Kael. También mantienen una relación personal.");
 
   const events = [
+    { id: "muerte-amara", title: "Muerte de Amara", description: "Durante el combate contra una criatura traída del Velo por Origen, Amara recibió un golpe mortal que la partió por la mitad. La fecha y el lugar no constan en este registro.", people: ["amara"], time: "Sin fecha registrada", type: "Fallecimiento" },
     { id: "secuestro-bella-sacrificio-selene", title: "Secuestro de Bella y sacrificio de Selene", description: "El secuestro de Bella estuvo relacionado con la decisión de Selene de sacrificarse para que el grupo pudiera volver a salvo.", people: ["bella", "selene"], time: "Sin fecha registrada", type: "Rescate y sacrificio" },
     { id: "asesinato-soben-fusion", title: "Asesinato de Soben y fusión de almas", description: "Adramalick asesinó a Soben. Más tarde se produjo una fusión de almas y el cuerpo de Soben fue utilizado como recipiente; las circunstancias y el momento exactos se desconocen.", people: ["adramalick", "soben"], time: "Sin fecha registrada", type: "Conflicto" }
   ];
