@@ -1111,13 +1111,17 @@ window.VELO_ARCHIVE_RECORDS = [
     "keywords": "CAS-001 casa Garret",
     "category": "LUGAR",
     "title": "Casa de Garret",
-    "summary": "Residencia moderna emplazada en un entorno montañoso. La imagen muestra una construcción de varios niveles, con amplios ventanales y terrazas abiertas al paisaje.",
+    "summary": "Residencia moderna emplazada en un entorno montañoso. Las imágenes muestran una construcción de varios niveles, con amplios ventanales y terrazas abiertas al paisaje, además de uno de sus espacios interiores.",
     "material": "REGISTRO VISUAL",
-    "contentHtml": "\n                        <div class=\"archive-gallery\">\n                            <figure class=\"archive-image\">\n                                <img src=\"../imagenes/varios/casas/casa garret.png\" alt=\"Casa de Garret\">\n                            </figure>\n                        </div>\n                    ",
+    "contentHtml": "\n                        <div class=\"archive-gallery\">\n                            <figure class=\"archive-image\">\n                                <img src=\"../imagenes/varios/casas/casa garret.png\" alt=\"Casa de Garret\">\n                            </figure>\n                            <figure class=\"archive-image\">\n                                <img src=\"../imagenes/varios/casas/casa-garret-interior.png\" alt=\"Interior de la casa de Garret\">\n                            </figure>\n                        </div>\n                    ",
     "media": [
       {
         "src": "../imagenes/varios/casas/casa garret.png",
         "alt": "Casa de Garret"
+      },
+      {
+        "src": "../imagenes/varios/casas/casa-garret-interior.png",
+        "alt": "Interior de la casa de Garret"
       }
     ],
     "characterRefs": [
@@ -1175,17 +1179,42 @@ window.VELO_ARCHIVE_RECORDS = [
     "keywords": "CAS-003 casa rural",
     "category": "LUGAR",
     "title": "Casa Elías",
-    "summary": "Residencia de piedra de varias plantas, con jardines y una fuente en el acceso principal.",
+    "summary": "Residencia de piedra de varias plantas, con jardines y una fuente en el acceso principal. El registro incorpora varias vistas interiores de la casa.",
     "material": "REGISTRO VISUAL",
-    "contentHtml": "\n                        <div class=\"archive-gallery\">\n                            <figure class=\"archive-image\">\n                                <img src=\"../imagenes/varios/casas/Casa Elías.png\" alt=\"Casa de Elías\">\n                            </figure>\n                        </div>\n                    ",
+    "contentHtml": "\n                        <div class=\"archive-gallery\">\n                            <figure class=\"archive-image\">\n                                <img src=\"../imagenes/varios/casas/Casa Elías.png\" alt=\"Casa de Elías\">\n                            </figure>\n                            <figure class=\"archive-image\">\n                                <img src=\"../imagenes/varios/casas/casa-elias-interior.png\" alt=\"Interiores de la casa de Elías\">\n                            </figure>\n                        </div>\n                    ",
     "media": [
       {
         "src": "../imagenes/varios/casas/Casa Elías.png",
         "alt": "Casa de Elías"
+      },
+      {
+        "src": "../imagenes/varios/casas/casa-elias-interior.png",
+        "alt": "Interiores de la casa de Elías"
       }
     ],
     "characterRefs": [
       { "id": "elias", "name": "Elías Rivas" }
+    ]
+  },
+  {
+    "code": "CAS-004",
+    "type": "casa",
+    "accessLevel": 1,
+    "pending": false,
+    "keywords": "CAS-004 casa Valmont mansión viñedos bodega residencia familiar",
+    "category": "LUGAR",
+    "title": "Casa de los Valmont",
+    "summary": "Mansión familiar rodeada de viñedos y vinculada a la bodega de la marca Valmont.",
+    "material": "REGISTRO VISUAL",
+    "contentHtml": "\n                        <div class=\"archive-gallery\">\n                            <figure class=\"archive-image\">\n                                <img src=\"../imagenes/varios/casas/casa-valmont.webp\" alt=\"Mansión y viñedos de la familia Valmont\">\n                            </figure>\n                        </div>\n                    ",
+    "media": [
+      {
+        "src": "../imagenes/varios/casas/casa-valmont.webp",
+        "alt": "Mansión y viñedos de la familia Valmont"
+      }
+    ],
+    "characterRefs": [
+      { "id": "selene", "name": "Selene Valmont" }
     ]
   },
   {
@@ -1266,13 +1295,17 @@ window.VELO_ARCHIVE_RECORDS = [
     "keywords": "HAB-004 habitación Hera Orsini",
     "category": "HABITACIÓN",
     "title": "Habitación de Hera Orsini",
-    "summary": "Habitación amplia de tonos cálidos, con revestimiento de madera, cama grande, estanterías empotradas y una zona de lectura junto a la ventana.",
+    "summary": "Habitación amplia de tonos cálidos, con revestimiento de madera, cama grande, estanterías empotradas y una zona de lectura junto a la ventana. Se incorpora además una vista compuesta de otros espacios interiores de la casa.",
     "material": "REGISTRO VISUAL",
-    "contentHtml": "\n                        <div class=\"archive-gallery\">\n                            <figure class=\"archive-image\">\n                                <img src=\"../imagenes/varios/casas/cuarto_hera.png\" alt=\"Habitación de Hera Orsini\">\n                            </figure>\n                        </div>\n                    ",
+    "contentHtml": "\n                        <div class=\"archive-gallery\">\n                            <figure class=\"archive-image\">\n                                <img src=\"../imagenes/varios/casas/cuarto_hera.png\" alt=\"Habitación de Hera Orsini\">\n                            </figure>\n                            <figure class=\"archive-image\">\n                                <img src=\"../imagenes/varios/casas/casa-hera.webp\" alt=\"Espacios interiores de la casa de Hera Orsini\">\n                            </figure>\n                        </div>\n                    ",
     "media": [
       {
         "src": "../imagenes/varios/casas/cuarto_hera.png",
         "alt": "Habitación de Hera Orsini"
+      },
+      {
+        "src": "../imagenes/varios/casas/casa-hera.webp",
+        "alt": "Espacios interiores de la casa de Hera Orsini"
       }
     ],
     "characterRefs": [
@@ -1837,6 +1870,27 @@ window.VELO_ARCHIVE_RECORDS = [
     "characterRefs": []
   },
   {
+    "code": "INS-018",
+    "type": "instalacion",
+    "accessLevel": 1,
+    "pending": false,
+    "keywords": "INS-018 Iluminados de Baviera mansión gala salón tormenta instalación",
+    "category": "INSTALACIÓN",
+    "title": "Mansión de los Iluminados de Baviera",
+    "summary": "Registro visual de la mansión vinculada a la gala de los Iluminados de Baviera: fachada, salón principal y una aparición tentacular durante la tormenta.",
+    "material": "REGISTRO VISUAL · 3 IMÁGENES",
+    "contentHtml": "\n                        <div class=\"archive-gallery\">\n                            <figure class=\"archive-image\">\n                                <img src=\"../imagenes/varios/Instalaciones/mansion-iluminados-baviera-01.webp\" alt=\"Fachada de la mansión de los Iluminados de Baviera\">\n                            </figure>\n                            <figure class=\"archive-image\">\n                                <img src=\"../imagenes/varios/Instalaciones/mansion-iluminados-baviera-02.webp\" alt=\"Criatura tentacular sobre la mansión durante la tormenta\">\n                            </figure>\n                            <figure class=\"archive-image\">\n                                <img src=\"../imagenes/varios/Instalaciones/mansion-iluminados-baviera-03.webp\" alt=\"Salón principal de la mansión\">\n                            </figure>\n                        </div>\n                    ",
+    "media": [
+      { "src": "../imagenes/varios/Instalaciones/mansion-iluminados-baviera-01.webp", "alt": "Fachada de la mansión de los Iluminados de Baviera" },
+      { "src": "../imagenes/varios/Instalaciones/mansion-iluminados-baviera-02.webp", "alt": "Criatura tentacular sobre la mansión durante la tormenta" },
+      { "src": "../imagenes/varios/Instalaciones/mansion-iluminados-baviera-03.webp", "alt": "Salón principal de la mansión" }
+    ],
+    "characterRefs": [],
+    "relatedRecords": [
+      { "code": "ENE-006", "note": "Registro de la criatura que aparece sobre la mansión." }
+    ]
+  },
+  {
     "code": "ENE-001",
     "type": "enemigo",
     "accessLevel": 1,
@@ -1930,5 +1984,51 @@ window.VELO_ARCHIVE_RECORDS = [
       }
     ],
     "characterRefs": []
+  },
+  {
+    "code": "ENE-006",
+    "type": "enemigo",
+    "accessLevel": 1,
+    "pending": false,
+    "keywords": "ENE-006 enemigo criatura tentáculos mansión Iluminados Baviera entidad",
+    "category": "ENEMIGO",
+    "title": "Criatura de la Mansión de los Iluminados de Baviera",
+    "summary": "Una criatura de múltiples tentáculos se cierne sobre la mansión de los Iluminados de Baviera, visible entre la lluvia y la oscuridad.",
+    "material": "REGISTRO VISUAL",
+    "contentHtml": "\n                        <div class=\"archive-gallery\">\n                            <figure class=\"archive-image\">\n                                <img src=\"../imagenes/varios/Instalaciones/mansion-iluminados-baviera-02.webp\" alt=\"Criatura tentacular sobre la mansión de los Iluminados de Baviera\">\n                            </figure>\n                        </div>\n                    ",
+    "media": [
+      {
+        "src": "../imagenes/varios/Instalaciones/mansion-iluminados-baviera-02.webp",
+        "alt": "Criatura tentacular sobre la mansión de los Iluminados de Baviera"
+      }
+    ],
+    "characterRefs": [],
+    "relatedRecords": [
+      { "code": "INS-018", "note": "La criatura aparece sobre esta mansión." }
+    ]
+  },
+  {
+    "code": "OBJ-012",
+    "type": "objeto",
+    "accessLevel": 1,
+    "pending": false,
+    "keywords": "OBJ-012 vehículo coche automóvil Oliva Arándano Syra Vael coches antiguos",
+    "category": "VEHÍCULO",
+    "title": "Oliva y Arándano · antiguos coches de Syra",
+    "summary": "Registro visual de Oliva y Arándano, los antiguos coches de Syra Vael.",
+    "material": "REGISTRO VISUAL · 2 FOTOGRAFÍAS",
+    "contentHtml": "\n      <p>Este registro reúne las fotografías de Oliva y Arándano, identificados como los antiguos coches de Syra Vael.</p>\n      <div class=\"archive-gallery\">\n        <figure class=\"archive-image\"><img src=\"../imagenes/varios/vehiculos/oliva.jpeg\" alt=\"Oliva, antiguo coche de Syra Vael\"><figcaption>Oliva</figcaption></figure>\n        <figure class=\"archive-image\"><img src=\"../imagenes/varios/vehiculos/arandano.jpeg\" alt=\"Arándano, antiguo coche de Syra Vael\"><figcaption>Arándano</figcaption></figure>\n      </div>\n    ",
+    "media": [
+      { "src": "../imagenes/varios/vehiculos/oliva.jpeg", "alt": "Oliva, antiguo coche de Syra Vael" },
+      { "src": "../imagenes/varios/vehiculos/arandano.jpeg", "alt": "Arándano, antiguo coche de Syra Vael" }
+    ],
+    "characterRefs": [
+      { "id": "syra", "name": "Syra Vael" }
+    ],
+    "findings": [
+      "Las fotografías identifican los vehículos por los nombres Oliva y Arándano.",
+      "Ambos constan como antiguos coches de Syra Vael."
+    ],
+    "relatedRecords": []
   }
 ];

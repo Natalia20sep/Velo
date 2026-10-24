@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="../../favicon.png" />
     <link rel="stylesheet" href="../../estilos.css" />
   </head>
-  <body>
+  <body data-galaxy="dossiers">
     <nav>
       <a class="logo" href="../../index.html">VELO</a>
       <div class="navlinks">
@@ -62,11 +62,10 @@
           <strong>EXPEDIENTE DE INDIVIDUO</strong>
         </div>
       </header>
-      <div class="file-breadcrumb" aria-label="Ruta del expediente">
-        <a href="../../index.html">VELO</a><span aria-hidden="true">/</span><a href="../personajes.html">Personajes</a><span aria-hidden="true">/</span><strong id="characterNameTrail">Cargando expediente</strong>
-      </div>
-      <div class="file-contents" role="navigation" aria-label="Secciones del expediente">
-        <a href="#identificacion">Identificación</a><a href="#vinculos">Vínculos</a><a href="#historia">Historia</a><a href="#connectionRecords">Constelación</a>
+      <div class="dossier-sequence" role="navigation" aria-label="Navegación entre expedientes">
+        <a class="dossier-step dossier-step-previous" id="previousDossier" href="#" aria-label="Expediente anterior" hidden><span class="dossier-arrow" aria-hidden="true">←</span><span class="dossier-step-copy"><small>Anterior</small><strong id="previousDossierName"></strong></span></a>
+        <span class="dossier-sequence-position" id="dossierPosition" aria-live="polite"></span>
+        <a class="dossier-step dossier-step-next" id="nextDossier" href="#" aria-label="Expediente siguiente" hidden><span class="dossier-step-copy"><small>Siguiente</small><strong id="nextDossierName"></strong></span><span class="dossier-arrow" aria-hidden="true">→</span></a>
       </div>
       <section class="file-identity" id="identificacion">
         <div class="file-number">
@@ -146,7 +145,7 @@
         <div class="connection-grid" id="connectionGrid"></div>
       </section>
       <footer class="file-end">
-        <span>VELO · ARCHIVO CENTRAL · FIN DEL EXPEDIENTE</span>
+        <span>El expediente termina aquí; la historia, no.</span>
         <a href="../personajes.html" class="back-button"> Volver al archivo</a>
       </footer>
     </main>

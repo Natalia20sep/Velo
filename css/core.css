@@ -24,9 +24,81 @@ body {
     overflow-x: hidden;
 }
 
+/* Cielo estrellado compartido: cada sección conserva su propio matiz. */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+body::before {
+    opacity: .32;
+    background-image:
+        radial-gradient(1px 1px at 8% 17%, rgba(255, 255, 255, .86) 98%, transparent),
+        radial-gradient(1.5px 1.5px at 27% 73%, rgba(218, 207, 255, .78) 98%, transparent),
+        radial-gradient(1px 1px at 46% 31%, rgba(255, 239, 204, .75) 98%, transparent),
+        radial-gradient(1px 1px at 66% 82%, rgba(213, 225, 255, .8) 98%, transparent),
+        radial-gradient(1.5px 1.5px at 88% 42%, rgba(255, 255, 255, .7) 98%, transparent);
+    background-size: 307px 271px, 389px 347px, 463px 419px, 353px 463px, 521px 383px;
+    animation: velo-star-drift 90s linear infinite;
+}
+
+body::after {
+    opacity: .72;
+    background: radial-gradient(ellipse at 18% 22%, var(--galaxy-glow, rgba(109, 82, 180, .12)), transparent 48%),
+        radial-gradient(ellipse at 83% 68%, rgba(39, 87, 143, .075), transparent 48%);
+}
+
+body[data-galaxy="home"] { --galaxy-glow: rgba(116, 75, 190, .16); }
+body[data-galaxy="world"], body[data-galaxy="history"] { --galaxy-glow: rgba(77, 117, 190, .13); }
+body[data-galaxy="geography"] { --galaxy-glow: rgba(50, 128, 137, .13); }
+body[data-galaxy="chronology"] { --galaxy-glow: rgba(176, 128, 68, .12); }
+body[data-galaxy="organizations"], body[data-galaxy="bastion"] { --galaxy-glow: rgba(160, 87, 105, .13); }
+body[data-galaxy="origen"] { --galaxy-glow: rgba(130, 69, 167, .17); }
+body[data-galaxy="soma"], body[data-galaxy="reah"] { --galaxy-glow: rgba(63, 131, 151, .14); }
+body[data-galaxy="people"], body[data-galaxy="dossiers"] { --galaxy-glow: rgba(171, 94, 137, .13); }
+body[data-galaxy="relations"] { --galaxy-glow: rgba(112, 93, 186, .16); }
+body[data-galaxy="gallery"] { --galaxy-glow: rgba(176, 126, 74, .13); }
+body[data-galaxy="archive"], body[data-galaxy="notice"] { --galaxy-glow: rgba(177, 140, 77, .13); }
+body[data-galaxy="presentation"] { --galaxy-glow: rgba(141, 80, 180, .16); }
+body[data-galaxy="irl"] { --galaxy-glow: rgba(75, 139, 158, .12); }
+
+@keyframes velo-star-drift {
+    from { background-position: 0 0, 0 0, 0 0, 0 0, 0 0; }
+    to { background-position: 307px 271px, -389px 347px, 463px -419px, -353px -463px, 521px 383px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body::before { animation: none; }
+}
+
 body>* {
     position: relative;
     z-index: 1;
+}
+
+.skip-link {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    z-index: 2000;
+    padding: 10px 16px;
+    border: 1px solid var(--gold-light);
+    background: var(--bg);
+    color: var(--gold-light);
+    font: 600 14px/1 "Inter", sans-serif;
+    text-decoration: none;
+    transform: translate(-50%, -180%);
+    transition: transform .2s ease;
+}
+
+.skip-link:focus {
+    transform: translate(-50%, 0);
+    outline: 3px solid var(--violet-light);
+    outline-offset: 3px;
 }
 
 section,
@@ -83,7 +155,7 @@ nav {
     position: relative;
     color: var(--muted);
     font-family: "Inter", sans-serif;
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: .16em;
     text-transform: uppercase;
     transition: color .3s ease;
@@ -204,11 +276,12 @@ nav {
         transition: max-height .35s ease, padding .35s ease;
     }
     .nav-dropdown.is-open .nav-dropdown-menu { max-height: 360px; padding-block: 8px; }
-    .nav-dropdown-menu a { padding: 10px 0 10px 20px; font-size: 9px; }
+    .nav-dropdown-menu a { padding: 12px 0 12px 20px; font-size: 14px; }
 
     .navlinks a,
     .nav-dropdown-btn {
-        font-size: 9px;
+        min-height: 48px;
+        font-size: 14px;
     }
 }
 
@@ -558,6 +631,91 @@ footer {
     letter-spacing: .12em;
     text-align: center;
     background: radial-gradient(ellipse at 50% 0, rgba(119, 100, 216, .035), transparent 50%);
+}
+
+footer.site-footer {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "brand top" "epigraph top";
+    align-items: center;
+    gap: 5px 24px;
+    min-height: 126px;
+    padding: 30px 7vw;
+    border-top-color: rgba(149, 133, 199, .24);
+    background: transparent;
+    text-align: left;
+}
+
+footer.site-footer::before {
+    content: "✦";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    padding: 0 11px;
+    background: transparent;
+    color: var(--gold-light);
+    font-size: 12px;
+    text-shadow: 0 0 14px rgba(200, 167, 107, .55), 0 0 26px rgba(120, 101, 185, .6);
+    transform: translateX(-50%);
+}
+
+.site-footer-brand {
+    grid-area: brand;
+    color: var(--gold-light);
+    font-family: "Cinzel", serif;
+    font-size: 12px;
+    letter-spacing: .3em;
+}
+
+.site-footer-epigraph {
+    grid-area: epigraph;
+    margin: 0;
+    color: var(--muted);
+    font-family: "Cinzel", serif;
+    font-size: 12px;
+    letter-spacing: .025em;
+}
+
+.site-footer-top {
+    grid-area: top;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 14px;
+    border: 1px solid rgba(200, 167, 107, .25);
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    transition: color .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+
+.site-footer-top span {
+    color: var(--gold-light);
+    font-size: 13px;
+    transition: transform .25s ease;
+}
+
+.site-footer-top:hover,
+.site-footer-top:focus-visible {
+    transform: translateY(-2px);
+    border-color: var(--gold-light);
+    color: var(--ink);
+    box-shadow: 0 0 22px rgba(120, 101, 185, .18);
+}
+
+.site-footer-top:hover span { transform: translateY(-2px); }
+
+@media (max-width: 600px) {
+    footer.site-footer {
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas: "brand top" "epigraph epigraph";
+        gap: 12px 14px;
+        padding: 28px 6vw;
+    }
+    .site-footer-epigraph { max-width: 34ch; font-size: 13px; }
+    .site-footer-top { padding: 10px 12px; font-size: 12px; }
 }
 
 /* RESPONSIVE */

@@ -1366,6 +1366,20 @@ body.modal-open {
     }
 }
 
+/* Navegación circular entre expedientes */
+.dossier-sequence { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 16px; width: min(1200px, 90%); margin: 17px auto 26px; }
+.dossier-step { position: relative; display: inline-flex; align-items: center; gap: 12px; width: fit-content; max-width: 100%; min-width: 0; min-height: 54px; padding: 7px 14px; border: 1px solid rgba(180,164,232,.16); color: var(--muted); background: linear-gradient(115deg, rgba(18,20,34,.82), rgba(9,12,22,.46)); box-shadow: inset 0 1px rgba(255,255,255,.025); text-decoration: none; transition: color .25s ease, border-color .25s ease, background .25s ease, transform .25s ease; }
+.dossier-step-next { justify-self: end; }
+.dossier-step:hover { color: var(--gold-light); border-color: rgba(200,167,107,.42); background: linear-gradient(115deg, rgba(30,28,46,.92), rgba(11,15,27,.72)); transform: translateY(-2px); }
+.dossier-step[hidden] { display: none; }
+.dossier-arrow { display: grid; flex: 0 0 30px; width: 30px; height: 30px; place-items: center; border: 1px solid rgba(200,167,107,.28); border-radius: 50%; color: var(--gold-light); font-size: 15px; line-height: 1; transition: color .25s ease, background .25s ease, box-shadow .25s ease; }
+.dossier-step:hover .dossier-arrow { color: #fff0c5; background: rgba(200,167,107,.12); box-shadow: 0 0 18px rgba(200,167,107,.12); }
+.dossier-step-copy { display: grid; min-width: 0; gap: 4px; }
+.dossier-step-copy small { color: var(--violet-light); font-size: 7px; letter-spacing: .2em; text-transform: uppercase; }
+.dossier-step-copy strong { overflow: hidden; color: var(--ink); font-size: 10px; font-weight: 400; letter-spacing: .04em; text-overflow: ellipsis; white-space: nowrap; }
+.dossier-sequence-position { color: var(--muted2); font-family: "Cinzel", serif; font-size: 9px; letter-spacing: .18em; white-space: nowrap; }
+@media (max-width: 600px) { .dossier-sequence { gap: 7px; }.dossier-step { min-height: 47px; padding: 6px 8px; gap: 6px; }.dossier-arrow { flex-basis: 24px; width: 24px; height: 24px; font-size: 13px; }.dossier-step-copy small { font-size: 6px; letter-spacing: .14em; }.dossier-step-copy strong { font-size: 8px; }.dossier-sequence-position { font-size: 7px; letter-spacing: .1em; } }
+
 /* CONSTELACIÓN VINCULADA */
 .file-breadcrumb { display: flex; flex-wrap: wrap; gap: 9px; width: min(1200px, 90%); margin: 26px auto 0; color: var(--muted2); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }.file-breadcrumb a { color: var(--gold); }.file-breadcrumb a:hover { color: var(--gold-light); }.file-breadcrumb strong { color: var(--muted); font-weight: 400; }
 .file-contents { display: flex; flex-wrap: wrap; gap: 8px; width: min(1200px, 90%); margin: 19px auto 0; padding: 12px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }.file-contents a { padding: 4px 10px; color: var(--muted); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }.file-contents a:hover { color: var(--gold-light); background: rgba(216,184,106,.07); }

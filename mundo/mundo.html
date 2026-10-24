@@ -4,11 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mundo | VELO</title>
-    <meta name="description" content="Conoce Lunaterra: un mundo de memorias alteradas, territorios, acontecimientos y secretos bajo el Velo." />
+    <meta
+      name="description"
+      content="Conoce Lunaterra: un mundo de memorias alteradas, territorios, acontecimientos y secretos bajo el Velo."
+    />
     <link rel="icon" type="image/png" href="../favicon.png" />
     <link rel="stylesheet" href="../estilos.css" />
   </head>
-  <body class="mundo-page">
+  <body class="mundo-page" data-galaxy="world">
     <nav>
       <a class="logo" href="../index.html">VELO</a>
       <div class="navlinks">
@@ -57,10 +60,10 @@
     </nav>
     <main class="mundo-content">
       <header class="mundo-hero">
-        <div class="mundo-kicker">Mundo</div>
+        <div class="mundo-kicker">Cartografía de VELO · 01</div>
         <h1>Lunaterra</h1>
         <p class="mundo-subtitle">
-          Explora la historia, el tiempo y los territorios de este mundo.
+          Tres registros para orientarse en un mundo lleno de zonas en sombra.
         </p>
       </header>
       <section class="mundo-section-list" aria-label="Secciones de Mundo">
@@ -69,43 +72,45 @@
           <div class="mundo-section-copy">
             <h2>Historia</h2>
             <p>
-              «Toda verdad guarda una primera grieta; sigue su rastro y
-              Lunaterra revelará lo que el tiempo quiso cubrir.»
+              El relato de lo que se creyó saber y de las grietas que cambiaron
+              Lunaterra.
             </p>
           </div>
           <a class="mundo-access-button" href="historia/historia.html"
-            >Explorar la historia <span aria-hidden="true">→</span></a
+            >Consultar <span aria-hidden="true">→</span></a
           >
         </article>
         <article class="mundo-section-row">
           <div class="mundo-section-number">02</div>
           <div class="mundo-section-copy">
             <h2>Cronología</h2>
-            <p>
-              «Los años pasan, pero ciertas huellas permanecen donde nadie se
-              atreve a mirar.»
-            </p>
+            <p>Los acontecimientos, en el orden en que dejaron su marca.</p>
           </div>
           <a class="mundo-access-button" href="cronologia/cronologia.html"
-            >Seguir la cronología <span aria-hidden="true">→</span></a
+            >Consultar <span aria-hidden="true">→</span></a
           >
         </article>
         <article class="mundo-section-row">
           <div class="mundo-section-number">03</div>
           <div class="mundo-section-copy">
             <h2>Geografía</h2>
-            <p>
-              «Cada mapa termina en un borde; más allá aguardan lugares que aún
-              no tienen nombre.»
-            </p>
+            <p>Ciudades, residencias y lugares que nos conectan.</p>
           </div>
           <a class="mundo-access-button" href="geografia/geografia.html"
-            >Descubrir los territorios <span aria-hidden="true">→</span></a
+            >Consultar <span aria-hidden="true">→</span></a
           >
         </article>
       </section>
     </main>
-    <footer>VELO · LUNATERRA · ARCHIVO RESERVADO</footer>
+    <footer class="site-footer">
+      <span class="site-footer-brand">VELO · LUNATERRA</span>
+      <p class="site-footer-epigraph">
+        Lunaterra todavía guarda regiones que no figuran en ningún mapa.
+      </p>
+      <a class="site-footer-top" href="#"
+        >Volver arriba <span aria-hidden="true">↑</span></a
+      >
+    </footer>
     <script src="../js/core.js"></script>
     <script src="../js/efectos.js"></script>
   </body>

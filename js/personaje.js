@@ -524,8 +524,8 @@
 
         set("recordNumber", "expediente", "REGISTRO");
         set("characterName", "nombre", "Registro desconocido");
-        set("characterNameTrail", "nombre", "Registro desconocido");
         set("status", "estado");
+        renderDossierSequence();
 
         const photo = document.getElementById("characterPhoto");
 
@@ -558,6 +558,43 @@
         renderDocuments();
         renderConnections();
         renderAdditionalData();
+    }
+
+    function renderDossierSequence() {
+        const order = [
+            ["adramalick", "Adramalick"], ["alara", "Alara"], ["amara", "Amara"],
+            ["angel", "Ángel"], ["aster", "Aster"], ["bella", "Bella Duvall"],
+            ["conchi", "Conchi"], ["concho", "Concho"], ["darian", "Darian"],
+            ["eiden", "Eiden"], ["elara", "Elara Vael"], ["eleanor", "Eleanor Eynard"],
+            ["elias", "Elías Rivas"], ["erys", "Erys Salazar"], ["garret", "Garret Cross"],
+            ["gideon", "Gideon"], ["hera", "Hera Orsini"], ["jassper", "Jassper"],
+            ["kael", "Kael Vael"], ["kassian", "Kassian Vorler"], ["livya", "Livya Vesper"],
+            ["lysara", "Lysara Voss"], ["natasha", "Natasha"], ["nyx", "Nhara"],
+            ["nyra", "Nyra Cast"], ["riccardo", "Riccardo"], ["rosaline", "Rosaline Valmont"],
+            ["selene", "Selene Valmont"], ["simone", "Simone Deames"], ["soben", "Soben"],
+            ["sylas", "Sylas Cross"], ["syra", "Syra Vael"], ["vera", "Vera Tyrrel"],
+            ["yareth", "Yareth"], ["zarek", "Zarek Vael"]
+        ];
+        const currentIndex = order.findIndex(([id]) => id === personajeId);
+        if (currentIndex < 0) return;
+
+        const previous = order[(currentIndex - 1 + order.length) % order.length];
+        const next = order[(currentIndex + 1) % order.length];
+        const previousLink = document.getElementById("previousDossier");
+        const nextLink = document.getElementById("nextDossier");
+        const position = document.getElementById("dossierPosition");
+
+        previousLink.href = `expediente.html?personaje=${encodeURIComponent(previous[0])}`;
+        previousLink.setAttribute("aria-label", `Expediente anterior: ${previous[1]}`);
+        document.getElementById("previousDossierName").textContent = previous[1];
+        previousLink.hidden = false;
+
+        nextLink.href = `expediente.html?personaje=${encodeURIComponent(next[0])}`;
+        nextLink.setAttribute("aria-label", `Expediente siguiente: ${next[1]}`);
+        document.getElementById("nextDossierName").textContent = next[1];
+        nextLink.hidden = false;
+
+        if (position) position.textContent = `${String(currentIndex + 1).padStart(2, "0")} / ${order.length}`;
     }
 
     document.addEventListener("DOMContentLoaded", () => {

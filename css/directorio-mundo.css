@@ -460,6 +460,22 @@
     object-position: center;
 }
 
+.lugar-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+    gap: 12px;
+    margin: 24px 0;
+}
+
+.lugar-galeria img {
+    display: block;
+    width: 100%;
+    max-height: 360px;
+    border: 1px solid var(--line);
+    object-fit: cover;
+    background: rgba(0, 0, 0, .2);
+}
+
 /* El texto conserva todo el ancho disponible */
 
 .lugar-ficha-contenido p {

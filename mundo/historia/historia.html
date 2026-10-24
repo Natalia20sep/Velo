@@ -3,13 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mundo | VELO</title>
-    <meta name="description" content="Lee la historia de Lunaterra y los rastros que explican sus brechas, memorias y primeros registros." />
+    <title>Historia de Lunaterra | VELO</title>
+    <meta
+      name="description"
+      content="Lee la historia de Lunaterra y los rastros que explican sus brechas, memorias y primeros registros."
+    />
     <link rel="icon" type="image/png" href="../../favicon.png" />
     <link rel="stylesheet" href="../../estilos.css" />
   </head>
 
-  <body class="mundo-page">
+  <body class="mundo-page" data-galaxy="history">
     <nav>
       <a class="logo" href="../../index.html">VELO</a>
       <div class="navlinks">
@@ -159,9 +162,35 @@
           esconderlo. Porque hay una diferencia entre descubrir que existe algo
           desconocido y descubrir que ese algo siempre ha sabido que existimos.
         </p>
+        <div
+          class="mundo-related-links"
+          role="group"
+          aria-label="Seguir explorando Lunaterra"
+        >
+          <a href="../geografia/geografia.html"
+            >Lugares mencionados en los registros
+            <span aria-hidden="true">→</span></a
+          >
+          <a href="../../organizaciones/organizaciones.html"
+            >Organizaciones que dejaron su huella
+            <span aria-hidden="true">→</span></a
+          >
+          <a href="../../archivo/archivo.html"
+            >Consultar documentos relacionados
+            <span aria-hidden="true">→</span></a
+          >
+        </div>
       </article>
     </main>
-    <footer>VELO · LUNATERRA · ARCHIVO RESERVADO</footer>
+    <footer class="site-footer">
+      <span class="site-footer-brand">VELO · LUNATERRA</span>
+      <p class="site-footer-epigraph">
+        La primera grieta nunca fue la primera.
+      </p>
+      <a class="site-footer-top" href="#"
+        >Volver arriba <span aria-hidden="true">↑</span></a
+      >
+    </footer>
     <script src="../../js/core.js"></script>
     <script src="../../js/efectos.js"></script>
   </body>
